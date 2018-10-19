@@ -1,0 +1,10 @@
+<mat-nav-list [style.maxHeight]="(menu.open)?'500px':'48px'"  [ngClass]="{'secondaryMenu': false}">
+  <mat-list-item *ngIf = "menu.link==false" (click)="menu.open = !menu.open" >
+    <mat-icon matListIcon iconsmall  >{{menu.icon}} </mat-icon>
+    <h3 matLine *ngIf="!iconOnly">{{ menu.name }} </h3>
+  </mat-list-item>
+  <mat-list-item *ngIf = "menu.link!=false" (click)="menu.open = !menu.open" [routerLink]="[menu.link]">
+    <mat-icon matListIcon iconsmall  >{{menu.icon}} </mat-icon>
+    <h3 matLine *ngIf="!iconOnly">{{ menu.name }} </h3>
+  </mat-list-item>
+</mat-nav-list>
