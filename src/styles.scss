@@ -7,3 +7,10 @@ body, html {
 .spacer {
   width: 100%;
 }
+.container-fluid {
+  padding: 0 16px;
+  flex-wrap: wrap;
+}
+app-project {
+  margin-top: 24px;
+}

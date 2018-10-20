@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-project-list',
@@ -6,5 +6,5 @@ import {Component} from '@angular/core';
   templateUrl: './project-list.component.html'
 })
 export class ProjectListComponent {
-
+  @Input() title;
 }

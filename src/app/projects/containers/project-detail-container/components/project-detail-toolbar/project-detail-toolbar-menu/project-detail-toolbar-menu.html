@@ -1,0 +1,4 @@
+<button fxHide.lt-sm mat-flat-button *ngFor="let menu of menus" [routerLink]="menu.link" routerLinkActive="active">{{menu.name}}</button>
+<button mat-flat-button fxHide.gt-md (click)="toggle($event)">
+  <mat-icon>dots-vertical</mat-icon>
+</button>

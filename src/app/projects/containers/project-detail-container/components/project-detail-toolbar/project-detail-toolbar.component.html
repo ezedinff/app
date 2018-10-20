@@ -1,0 +1,12 @@
+<div fxLayout="row" class="container-fluid" style="padding-top: 16px;">
+  <mat-toolbar color="primary">
+    <h1 class="mat-headline">Project Name</h1>
+    <span class="spacer"></span>
+    <app-project-detail-toolbar-menu [menus]="menus" (toggleMenu)="toggleMenu()"></app-project-detail-toolbar-menu>
+  </mat-toolbar>
+</div>
+<mat-list fxHide.gt-md *ngIf="isShown" class="menu mat-elevation-z1">
+  <mat-list-item *ngFor="let menu of menus">
+    <button (click)="toggleMenu()" mat-flat-button style="background-color: #f5f5f5; color: #212121"  [routerLink]="menu.link" routerLinkActive="active">{{menu.name}}</button>
+  </mat-list-item>
+</mat-list>
