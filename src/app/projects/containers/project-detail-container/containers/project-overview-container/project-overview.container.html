@@ -1,1 +1,10 @@
-this is overview of the project
+<div fxLayout="row" fxLayout.xs="column" class="container-fluid" fxLayoutGap="16px" style="padding-top: 16px;">
+  <app-detail-box fxFlex [title]="'Description'" [message]="'this is the message area'" (editClicked)="editClicked()"></app-detail-box>
+  <app-detail-box fxFlex [title]="'Description'" [message]="'this is the message area'" (editClicked)="editClicked()"></app-detail-box>
+  <app-detail-box fxFlex [title]="'Description'" [message]="'this is the message area'" (editClicked)="editClicked()"></app-detail-box>
+</div>
+
+<div fxLayout="row" fxLayout.xs="column" class="container-fluid" fxLayoutGap="16px" style="padding-top: 16px;">
+  <app-project-detail-list fxFlex="25" [details]="'details'"></app-project-detail-list>
+  <ng-container fxFlex="75"></ng-container>
+</div>

@@ -8,5 +8,7 @@ import {Component, OnInit} from '@angular/core';
 export class ProjectOverviewContainer implements OnInit {
   ngOnInit(): void {
   }
-
+  editClicked() {
+    console.log('pop up the dialog to edit the data');
+  }
 }
