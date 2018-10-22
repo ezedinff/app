@@ -6,6 +6,7 @@ import {TreeElementComponent} from './tree-element-component/tree-element.compon
 import {MatButtonModule, MatDialogModule, MatIconModule, MatListModule, MatToolbarModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {DialogComponent} from '../dialog-component/dialog.component';
+import {ReactiveFormsModule} from '@angular/forms';
 const COMPONENT = [
   IndicatorTreeComponent,
   TreeComponent,
@@ -20,7 +21,8 @@ const COMPONENT = [
     MatButtonModule,
     MatListModule,
     MatDialogModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    ReactiveFormsModule
   ],
   declarations: COMPONENT,
   exports: COMPONENT,

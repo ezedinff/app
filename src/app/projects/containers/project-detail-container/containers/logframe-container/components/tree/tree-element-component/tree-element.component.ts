@@ -27,7 +27,9 @@ export class TreeElementComponent implements OnInit {
   toggleMenu() {
     this.isShown = !this.isShown;
   }
-  openDialog() {
-    this.matdialog.open(DialogComponent, {width: '400px', height: '370px', disableClose: true});
+  openDialog(type: string, action: string) {
+    if (action !== 'delete') {
+      this.matdialog.open(DialogComponent, {data: {'type': type, 'action': action}, width: '400px', height: '370px', disableClose: true});
+    }
   }
 }

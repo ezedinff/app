@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">Add New Outcome <span class="spacer"></span><button  mat-icon-button mat-dialog-close style="float: right !important; position: relative; cursor: pointer;"><mat-icon > close</mat-icon></button></mat-toolbar>
+<mat-toolbar color="primary"><span style="text-transform: capitalize;">{{title}}</span><span class="spacer"></span><button  mat-icon-button mat-dialog-close style="float: right !important; position: relative; cursor: pointer;"><mat-icon > close</mat-icon></button></mat-toolbar>
 <ng-container class="dialog-container">
   <ng-container *ngComponentOutlet="dynamicComponent; ngModuleFactory: dynamicModule"></ng-container>
 </ng-container>

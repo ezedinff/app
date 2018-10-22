@@ -2,18 +2,28 @@
   <button mat-icon-button (click)="toggle()">
     <mat-icon>{{icon}}</mat-icon>
   </button>
-  <div fxFlex="{{46-m}}" fxFlex.xs="92" class="title">{{title}}</div>
+  <div fxFlex="{{52-m}}" fxFlex.xs="92" class="title">{{title}}</div>
   <button mat-icon-button (click)="toggleMenu()">
     <mat-icon>more_vert</mat-icon>
     <div fxLayout="row" class="container-fluid" fxLayoutAlign="end">
-      <mat-list fxFlex="128px" *ngIf="isShown" class="menu mat-elevation-z5" fxFlexAlign="right">
+      <mat-list fxFlex="256px" *ngIf="isShown" class="menu mat-elevation-z10" fxFlexAlign="right">
         <mat-list-item *ngFor="let menu of menus">
-          <button mat-button style= "color: #212121; width: 100%; height: 100%; text-align: left;" (click)="openDialog()">{{menu.name}}</button>
+          <button mat-button style= "color: #212121; width: 100%; height: 100%; text-align: left;" (click)="openDialog(menu?.type, menu?.action)">
+            <mat-icon>{{menu?.icon}}</mat-icon>
+            {{menu?.name}}
+          </button>
         </mat-list-item>
       </mat-list>
     </div>
   </button>
-  <div fxFlex="{{46+m}}" fxHide.lt-sm class="title">dd</div>
+  <div fxFlex="{{40+m}}" fxHide.lt-sm class="title">
+    <div fxLayout="row">
+      <div fxFlex="25" style="text-align: center;"></div>
+      <div fxFlex="25" style="text-align: center;"></div>
+      <div fxFlex="25" style="text-align: center;"></div>
+      <div fxFlex="25" style="text-align: center;"></div>
+    </div>
+  </div>
 </div>
 <div style="padding-left: 1%;" *ngIf="icon !== 'chevron_right'">
   <ng-content></ng-content>

@@ -1,5 +1,6 @@
-import {Compiler, Component, NgModule, NgModuleFactory, OnInit} from '@angular/core';
+import {Compiler, Component, Inject, NgModule, NgModuleFactory, OnInit} from '@angular/core';
 import {
+  MAT_DIALOG_DATA,
   MatButtonModule,
   MatDialogModule,
   MatFormFieldModule,
@@ -8,8 +9,8 @@ import {
   MatSelectModule,
   MatToolbarModule
 } from '@angular/material';
-import {FormsModule} from '@angular/forms';
-import {outcomeForm} from '../../constants/template';
+import {FormBuilder, FormGroup, FormsModule} from '@angular/forms';
+import {indicatorForm, outcomeForm, outputForm} from '../../constants/template';
 
 @Component({
   selector: 'app-dialog',
@@ -19,16 +20,38 @@ import {outcomeForm} from '../../constants/template';
 export class DialogComponent implements OnInit {
   dynamicComponent;
   dynamicModule: NgModuleFactory<any>;
-  text = outcomeForm;
-
-  constructor(private compiler: Compiler) {
+  title: string;
+  generalForm: FormGroup;
+  constructor(private compiler: Compiler,
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private formBuilder: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.dynamicComponent = this.createNewComponent(this.text);
+    this.title = this.getTitle(this.data['type'], this.data['action']);
+    this.dynamicComponent = this.createNewComponent(this.getTemplate(this.data['type']));
     this.dynamicModule = this.compiler.compileModuleSync(this.createComponentModule(this.dynamicComponent));
   }
-
+  getTemplate(type: string) {
+    switch (type) {
+      case 'outcome':
+        return outcomeForm;
+      case 'output':
+        return outputForm;
+      case 'indicator':
+        return indicatorForm;
+      default:
+        return type;
+    }
+  }
+  getTitle(type: string, action: string) {
+    switch (action) {
+      case 'add':
+        return `${action} new ${type}`;
+      default:
+        return `${action} ${type}`;
+    }
+  }
   protected createComponentModule(componentType: any) {
     @NgModule({
       imports: [
