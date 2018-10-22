@@ -7,11 +7,13 @@ import {RouterModule, Routes} from '@angular/router';
 import {ProjectDetailContainer} from '../../project-detail.container';
 import {ProjectOverviewContainer} from '../../containers/project-overview-container/project-overview.container';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {LogframeContainer} from '../../containers/logframe-container/logframe.container';
 const routes: Routes = [
   {
     path: '', component: ProjectDetailContainer,
     children: [
-      {path: 'overview', component: ProjectOverviewContainer}
+      {path: 'overview', component: ProjectOverviewContainer},
+      {path: 'logframe', component: LogframeContainer}
     ]
   }
 ]; // TODO redirect path should be set

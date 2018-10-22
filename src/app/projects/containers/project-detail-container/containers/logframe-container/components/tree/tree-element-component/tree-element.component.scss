@@ -1,0 +1,21 @@
+.title{
+  vertical-align: center;
+  align-items: flex-start;
+  display: flex;
+  justify-content: start;
+  padding-top: 12.2px;
+  z-index: 9999999999 !important;
+}
+.menu{
+  width: 128px;
+  position: absolute;
+  top: 36px;
+  z-index: 500;
+  text-align: left;
+  background-color: white;
+  padding: 0;
+}
+::ng-deep .mat-list-item-content{
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}

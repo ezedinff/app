@@ -1,0 +1,10 @@
+<div fxLayout="row" style="padding-top: 16px">
+  <div fxFlex="54" fxFlex.xs="100"></div>
+  <div fxFlex="46" fxHide.lt-sm>dddddddd</div>
+</div>
+<app-tree-element [m]="0" [title]="'project title'" [type]="'project'">
+  <app-tree-element [m]="0.5" [title]="'Outcome title'" [type]="'outcome'">
+    <app-tree-element [m]="1" [title]="'Output title'" [type]="'outcome'"></app-tree-element>
+  </app-tree-element>
+</app-tree-element>
+
