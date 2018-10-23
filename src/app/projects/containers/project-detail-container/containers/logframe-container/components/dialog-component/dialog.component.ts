@@ -1,16 +1,17 @@
 import {Compiler, Component, Inject, NgModule, NgModuleFactory, OnInit} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
-  MatButtonModule,
+  MatButtonModule, MatButtonToggleModule, MatCheckboxModule, MatDatepickerModule,
   MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatNativeDateModule,
   MatSelectModule,
   MatToolbarModule
 } from '@angular/material';
-import {FormBuilder, FormGroup, FormsModule} from '@angular/forms';
+import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {indicatorForm, outcomeForm, outputForm} from '../../constants/template';
+import {forms} from '../../constants/formMetaData';
 
 @Component({
   selector: 'app-dialog',
@@ -21,15 +22,13 @@ export class DialogComponent implements OnInit {
   dynamicComponent;
   dynamicModule: NgModuleFactory<any>;
   title: string;
-  generalForm: FormGroup;
   constructor(private compiler: Compiler,
-              @Inject(MAT_DIALOG_DATA) public data: any,
-              private formBuilder: FormBuilder) {
+              @Inject(MAT_DIALOG_DATA) public data: any) {
   }
 
   ngOnInit(): void {
     this.title = this.getTitle(this.data['type'], this.data['action']);
-    this.dynamicComponent = this.createNewComponent(this.getTemplate(this.data['type']));
+    this.dynamicComponent = this.createNewComponent(this.getTemplate(this.data['type']), this.data);
     this.dynamicModule = this.compiler.compileModuleSync(this.createComponentModule(this.dynamicComponent));
   }
   getTemplate(type: string) {
@@ -62,7 +61,10 @@ export class DialogComponent implements OnInit {
         MatSelectModule,
         MatIconModule,
         MatDialogModule,
-        FormsModule
+        ReactiveFormsModule,
+        MatDatepickerModule,
+        MatCheckboxModule,
+        MatNativeDateModule
       ],
       declarations: [componentType],
       entryComponents: [componentType]
@@ -73,7 +75,7 @@ export class DialogComponent implements OnInit {
     return RuntimeComponentModule;
   }
 
-  protected createNewComponent(text: string) {
+  protected createNewComponent(text: string, data: any) {
     const template = `${text}`;
 
     @Component({
@@ -83,9 +85,19 @@ export class DialogComponent implements OnInit {
     })
     class DynamicComponent implements OnInit {
       text: any;
-
+      data: any;
+      generalForm: FormGroup;
+      constructor(private formBuilder: FormBuilder) {}
       ngOnInit(): void {
         this.text = text;
+        this.data = data;
+        this.createForm(forms[`${data['type']}_form`]);
+      }
+      createForm(constrols) {
+        this.generalForm = this.formBuilder.group(constrols);
+      }
+      submit() {
+        console.log(this.generalForm);
       }
     }
 

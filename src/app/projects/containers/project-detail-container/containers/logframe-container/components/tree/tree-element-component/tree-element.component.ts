@@ -28,8 +28,12 @@ export class TreeElementComponent implements OnInit {
     this.isShown = !this.isShown;
   }
   openDialog(type: string, action: string) {
+    let height = '370px';
+    if (type === 'indicator') {
+      height = '100vh';
+    }
     if (action !== 'delete') {
-      this.matdialog.open(DialogComponent, {data: {'type': type, 'action': action}, width: '400px', height: '370px', disableClose: true});
+      this.matdialog.open(DialogComponent, {data: {'type': type, 'action': action}, width: '400px', maxWidth: '100vw' , height: height , disableClose: true});
     }
   }
 }
