@@ -29,7 +29,7 @@ export class TreeElementComponent implements OnInit {
   }
   openDialog(type: string, action: string) {
     let height = '370px';
-    if (type === 'indicator') {
+    if (type === 'indicator' || type === 'activity' || type === 'milestone') {
       height = '100vh';
     }
     if (action !== 'delete') {

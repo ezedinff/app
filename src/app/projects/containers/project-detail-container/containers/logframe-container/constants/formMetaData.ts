@@ -28,10 +28,26 @@ const indicatorForm = {
   customform: ''
 };
 const activityForm = {
-  title: ''
+  name: '',
+  category: '',
+  kebele: '',
+  status: '',
+  partners: '',
+  baseline: '',
+  start: '',
+  target: '',
+  end: '',
+  onbudget: '',
+  budget: ''
 };
 const milestoneForm = {
-  title: ''
+  name: '',
+  baseline: '',
+  start: '',
+  target: '',
+  end: '',
+  onbudget: '',
+  budget: ''
 };
 
 export const forms = {

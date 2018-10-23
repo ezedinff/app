@@ -10,7 +10,7 @@ import {
   MatToolbarModule
 } from '@angular/material';
 import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {indicatorForm, outcomeForm, outputForm} from '../../constants/template';
+import {activityForm, indicatorForm, milestoneForm, outcomeForm, outputForm} from '../../constants/template';
 import {forms} from '../../constants/formMetaData';
 
 @Component({
@@ -39,6 +39,10 @@ export class DialogComponent implements OnInit {
         return outputForm;
       case 'indicator':
         return indicatorForm;
+      case 'activity':
+        return activityForm;
+      case 'milestone':
+        return milestoneForm;
       default:
         return type;
     }
