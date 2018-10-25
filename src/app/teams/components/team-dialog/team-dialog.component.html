@@ -1,0 +1,6 @@
+<mat-toolbar color="primary" class="mat-elevation-z4"><span style="text-transform: capitalize;">{{title}}</span><span class="spacer"></span><button  mat-icon-button mat-dialog-close style="float: right !important; position: relative; cursor: pointer;"><mat-icon > close</mat-icon></button></mat-toolbar>
+<perfect-scrollbar>
+  <ng-container class="dialog-container">
+    <ng-container *ngComponentOutlet="dynamicComponent; ngModuleFactory: dynamicModule"></ng-container>
+  </ng-container>
+</perfect-scrollbar>

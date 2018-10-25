@@ -5,6 +5,10 @@
   width: 128px;
   position: absolute;
   top: 72px;
+  padding: 0;
   z-index: 500;
-  background-color: #f5f5f5;
+  background-color: white;
+}
+::ng-deep .mat-list-item-content{
+  padding: 0 !important;
 }

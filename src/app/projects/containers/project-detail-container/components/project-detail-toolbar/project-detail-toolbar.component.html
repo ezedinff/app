@@ -6,9 +6,9 @@
   </mat-toolbar>
 </div>
 <div fxLayout="row" class="container-fluid" fxLayoutAlign="end">
-  <mat-list fxFlex="128px" fxHide.gt-md *ngIf="isShown" class="menu mat-elevation-z1" fxFlexAlign="right">
+  <mat-list fxFlex="128px" fxHide.gt-md *ngIf="isShown" class="menu mat-elevation-z5" fxFlexAlign="right">
     <mat-list-item *ngFor="let menu of menus">
-      <button (click)="toggleMenu()" mat-flat-button style="background-color: #f5f5f5; color: #212121"  [routerLink]="menu.link" routerLinkActive="active">{{menu.name}}</button>
+      <button (click)="toggleMenu()" mat-flat-button style="background-color: white; color: #212121; width: 100%;"  [routerLink]="menu.link" routerLinkActive="active">{{menu.name}}</button>
     </mat-list-item>
   </mat-list>
 </div>

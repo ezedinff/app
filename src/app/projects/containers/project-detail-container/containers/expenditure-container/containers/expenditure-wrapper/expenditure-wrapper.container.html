@@ -1,0 +1,42 @@
+<div fxLayout="row" class="container-fluid" style="margin-top: 16px;">
+  <mat-toolbar  style="background-color: white;">
+    <span class="spacer"></span>
+    <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+    <button mat-icon-button>
+      <mat-icon>save</mat-icon>
+    </button>
+  </mat-toolbar>
+</div>
+<div class="container-fluid" fxHide.lt-sm>
+  <mat-card style="padding-left: 40px; padding-bottom: 0;" >
+    <div fxLayout="row">
+      <div fxFlex="40" style="background-color: white;"></div>
+      <div fxFlex="60" style="background-color: white;">
+        <div fxLayout="row" style="background-color: white;">
+          <div fxFlex style="border-right: 1px solid;">Jan</div>
+          <div fxFlex style="border-right: 1px solid;">Jan</div>
+          <div fxFlex style="border-right: 1px solid;">Jan</div>
+          <div fxFlex style="border-right: 1px solid;">Jan</div>
+          <div fxFlex style="border-right: 1px solid;">Jan</div>
+          <div fxFlex style="border-right: 1px solid;">Jan</div>
+          <div fxFlex style="border-right: 1px solid;">Jan</div>
+          <div fxFlex style="border-right: 1px solid;">Jan</div>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>
+<div class="container-fluid">
+  <mat-card style="padding-top: 0;">
+    <app-expenditure-tree>
+      <app-expenditure-tree-element></app-expenditure-tree-element>
+      <app-expenditure-tree-element></app-expenditure-tree-element>
+    </app-expenditure-tree>
+    <app-expenditure-tree>
+      <app-expenditure-tree-element></app-expenditure-tree-element>
+      <app-expenditure-tree-element></app-expenditure-tree-element>
+    </app-expenditure-tree>
+  </mat-card>
+</div>

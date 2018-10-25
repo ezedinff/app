@@ -5,15 +5,14 @@ import {ProjectDetailToolbarMenuComponent} from './project-detail-toolbar-menu/p
 import {ProjectDetailToolbarComponent} from './project-detail-toolbar.component';
 import {RouterModule, Routes} from '@angular/router';
 import {ProjectDetailContainer} from '../../project-detail.container';
-import {ProjectOverviewContainer} from '../../containers/project-overview-container/project-overview.container';
 import {FlexLayoutModule} from '@angular/flex-layout';
-import {LogframeContainer} from '../../containers/logframe-container/logframe.container';
 const routes: Routes = [
   {
     path: '', component: ProjectDetailContainer,
     children: [
-      {path: 'overview', component: ProjectOverviewContainer},
-      {path: 'logframe', component: LogframeContainer}
+      {path: 'overview', loadChildren: '../../containers/project-overview-container/index#ProjectOverviewModule'},
+      {path: 'logframe', loadChildren: '../../containers/logframe-container/index#LogframeModule'},
+      {path: 'expenditure', loadChildren: '../../containers/expenditure-container/index#ExpenditureModule'}
     ]
   }
 ]; // TODO redirect path should be set

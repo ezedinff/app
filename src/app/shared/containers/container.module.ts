@@ -18,6 +18,9 @@ const routes: Routes = [
   {path: '', component: LayoutContainer, children: [
       {
         path: 'projects', loadChildren: '../../projects/project.module#ProjectModule'
+      },
+      {
+        path: 'teams', loadChildren: '../../teams/index#TeamModule'
       }
     ]
   }

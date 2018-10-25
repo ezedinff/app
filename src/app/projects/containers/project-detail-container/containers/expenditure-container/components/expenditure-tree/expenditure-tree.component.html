@@ -1,0 +1,13 @@
+<div fxLayout="row" style="border: 1px solid #b6b6b6;">
+  <div fxFlexFill>
+    <button mat-icon-button (click)="toggle()">
+      <mat-icon>{{icon}}</mat-icon>
+    </button>
+    expenditure category title
+  </div>
+</div>
+<div fxLayout="column" *ngIf="icon !== 'chevron_right'">
+  <div fxFlexFill>
+    <ng-content></ng-content>
+  </div>
+</div>

@@ -5,10 +5,14 @@ import {MatButtonModule, MatCardModule, MatIconModule, MatListModule} from '@ang
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {DetailBoxComponent} from './components/detail-box-component/detail-box.component';
 import {ProjectDetailListComponent} from './components/project-detail-list/project-detail-list.component';
+import {RouterModule, Routes} from '@angular/router';
 const COMPONENT = [
   ProjectOverviewContainer,
   DetailBoxComponent,
   ProjectDetailListComponent
+];
+const routes: Routes = [
+  {path: '',  component: ProjectOverviewContainer}
 ];
 @NgModule({
   declarations: COMPONENT,
@@ -18,9 +22,10 @@ const COMPONENT = [
     MatIconModule,
     MatButtonModule,
     MatListModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    RouterModule.forChild(routes)
   ],
   providers: [],
-  exports: COMPONENT
+  exports: [COMPONENT, RouterModule]
 })
 export class ProjectOverviewModule {}

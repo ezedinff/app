@@ -10,5 +10,11 @@ export const menus: Menu[] = [
     icon: 'dashboard',
     link: '/projects',
     open: false
+  },
+  {
+    name: 'Teams',
+    icon: 'dashboard',
+    link: '/teams',
+    open: false
   }
 ];
