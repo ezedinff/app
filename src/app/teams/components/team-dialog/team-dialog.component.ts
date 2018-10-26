@@ -21,6 +21,10 @@ export class TeamDialogComponent {
   dynamicComponent;
   dynamicModule: NgModuleFactory<any>;
   title = 'this is title';
+  config = {
+    suppressScrollX: true,
+    useBothWheelAxes: true
+  };
   constructor(@Inject(MAT_DIALOG_DATA) public data: any, private compiler: Compiler) {
     this.dynamicComponent = this.createDynamicComponent(this.title);
     this.dynamicModule = this.compiler.compileModuleSync(this.createDynamicModule(this.dynamicComponent));

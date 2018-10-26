@@ -9,6 +9,7 @@ import {TeamDialogComponent} from './components/team-dialog/team-dialog.componen
 import { PerfectScrollbarConfigInterface, PERFECT_SCROLLBAR_CONFIG, PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import {MembersContainer} from './containers/members-container/members.container';
 import {MembersComponent} from './components/members.component/members.component';
+import {EzTableModule} from '../shared/components/ez-table/ez-table.module';
 const COMPONENT = [
   TeamContainer,
   MembersContainer,
@@ -21,7 +22,6 @@ const routes: Routes = [
   {path: ':id/members', component: MembersContainer }
 ];
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
-  suppressScrollX: true
 };
 @NgModule({
   imports: [
@@ -34,7 +34,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatDialogModule,
     MatDialogModule,
     RouterModule.forChild(routes),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    EzTableModule
   ],
   declarations: COMPONENT,
   exports: [COMPONENT, RouterModule],

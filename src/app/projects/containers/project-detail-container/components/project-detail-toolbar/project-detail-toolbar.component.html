@@ -1,5 +1,8 @@
 <div fxLayout="row" class="container-fluid" style="padding-top: 16px;">
   <mat-toolbar color="primary">
+    <button mat-icon-button (click)="back()">
+      <mat-icon>arrow_back</mat-icon>
+    </button>
     <h1 class="mat-headline">Project Name</h1>
     <span class="spacer"></span>
     <app-project-detail-toolbar-menu [menus]="menus" (toggleMenu)="toggleMenu()"></app-project-detail-toolbar-menu>

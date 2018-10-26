@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {menus} from './menus';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-project-detail-toolbar',
@@ -9,9 +10,11 @@ import {menus} from './menus';
 export class ProjectDetailToolbarComponent implements OnInit {
   menus = menus;
   isShown = false;
+  constructor(private location: Location) {}
   ngOnInit(): void {
   }
   toggleMenu() {
     this.isShown = !this.isShown;
   }
+  back() { this.location.back(); }
 }

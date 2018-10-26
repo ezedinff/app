@@ -28,10 +28,10 @@ export class LayoutContainer implements OnInit {
       this.matDrawerOpened = false;
       this.matDrawerShow = true;
     } else if (this.media.isActive('gt-xs')) {
-      this.sideNavMode = 'side';
+      this.sideNavMode = 'over';
       this.sideNavOpened = false;
-      this.matDrawerOpened = true;
-      this.matDrawerShow = true;
+      this.matDrawerOpened = false;
+      this.matDrawerShow = false;
     } else if (this.media.isActive('lt-sm')) {
       this.sideNavMode = 'over';
       this.sideNavOpened = false;

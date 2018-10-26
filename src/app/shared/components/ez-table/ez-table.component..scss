@@ -1,0 +1,19 @@
+.ez-table-header{
+  border-right: 1px solid #b6b6b6;
+  border-bottom: 1px solid #b6b6b6;
+  text-align: center;
+  padding: 8px;
+  max-height: 33px;
+}
+.ez-table-data{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 206.8px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+.ez-table-action-button{
+  position: relative;
+  top: -12px;
+}

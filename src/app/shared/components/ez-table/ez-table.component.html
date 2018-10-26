@@ -1,0 +1,59 @@
+<div fxHide.lt-sm>
+  <div fxLayout="row" fxLayout.lt-sm="column" class="mat-elevation-z1"
+       style="background-color: white; border-top: 1px solid #b6b6b6; border-left: 1px solid #b6b6b6;">
+    <div fxFlex *ngFor="let column of setting.columns">
+      <div fxLayout="column">
+        <div fxFlex class="ez-table-header"
+             style="background-color: #f5f5f5; text-transform: capitalize; font-weight: 700;">{{column?.title}}
+        </div>
+        <div fxFlex class="ez-table-header" *ngFor="let data of datas">
+          <span matTooltip="{{data[column?.prop]}}"
+                [matTooltipPosition]="'below'" *ngIf="column?.title !== 'actions'">{{data[column?.prop]}}</span>
+          <span *ngIf="column?.title === 'actions'" style="padding: 0!important;;">
+            <button mat-icon-button matTooltip="{{action?.title}}"
+                    [matTooltipPosition]="'below'" class="ez-table-action-button" *ngFor="let action of setting.actions"
+                    style="margin: 0;">
+              <mat-icon>{{action?.icon}}</mat-icon>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- for small devices -->
+<div fxHide.gt-xs>
+  <div fxLayout="row" class="mat-elevation-z1" style="background-color: white;">
+    <div fxFlex="40" class="mat-elevation-z3" style="border: 1px solid #b6b6b6;">
+      <div fxLayout="column">
+        <div fxFlex class="ez-table-header" *ngFor="let column of setting.columns"
+             style="background-color: #f5f5f5; text-transform: capitalize; font-weight: 700; border-right: 0;">
+          {{column?.title}}
+        </div>
+      </div>
+    </div>
+    <div fxFlex="60">
+      <perfect-scrollbar [config]="config">
+        <div fxLayout="row" style="position: relative;">
+          <div fxLayout="column"
+               style="border-top: 1px solid #b6b6b6; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;"
+               *ngFor="let data of datas" [ngStyle]="{'min-width.px': 206.8}">
+            <div fxFlex class="ez-table-header"
+                 *ngFor="let column of setting.columns">
+                        <span matTooltip="{{data[column?.prop]}}"
+                              [matTooltipPosition]="'below'"
+                              *ngIf="column?.title !== 'actions'">{{data[column?.prop]}}</span>
+                            <span *ngIf="column?.title === 'actions'" style="padding: 0!important;">
+                          <button mat-icon-button matTooltip="{{action?.title}}"
+                                  [matTooltipPosition]="'below'" class="ez-table-action-button" *ngFor="let action of setting.actions"
+                                  style="margin: 0;">
+                            <mat-icon>{{action?.icon}}</mat-icon>
+                          </button>
+                        </span>
+            </div>
+          </div>
+        </div>
+      </perfect-scrollbar>
+    </div>
+  </div>
+</div>

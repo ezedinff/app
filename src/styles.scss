@@ -22,13 +22,7 @@ app-project {
   text-align: center;
   cursor: pointer;
 }
-.title{
-  display: block;
-  align-self: center;
-  top: 3em;
-  position: relative;
-  cursor: pointer;
-}
+
 ::ng-deep .mat-dialog-container{
   padding: 0 0 5em;
   overflow: hidden;
