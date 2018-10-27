@@ -11,7 +11,9 @@
                 [matTooltipPosition]="'below'" *ngIf="column?.title !== 'actions'">{{data[column?.prop]}}</span>
           <span *ngIf="column?.title === 'actions'" style="padding: 0!important;;">
             <button mat-icon-button matTooltip="{{action?.title}}"
-                    [matTooltipPosition]="'below'" class="ez-table-action-button" *ngFor="let action of setting.actions"
+                    [matTooltipPosition]="'below'" class="ez-table-action-button"
+                    *ngFor="let action of setting.actions"
+                    (click)="emitAction(action?.type, data?.id)"
                     style="margin: 0;">
               <mat-icon>{{action?.icon}}</mat-icon>
             </button>
@@ -45,7 +47,9 @@
                               *ngIf="column?.title !== 'actions'">{{data[column?.prop]}}</span>
                             <span *ngIf="column?.title === 'actions'" style="padding: 0!important;">
                           <button mat-icon-button matTooltip="{{action?.title}}"
-                                  [matTooltipPosition]="'below'" class="ez-table-action-button" *ngFor="let action of setting.actions"
+                                  [matTooltipPosition]="'below'" class="ez-table-action-button"
+                                  (click)="emitAction(action?.type, data?.id)"
+                                  *ngFor="let action of setting.actions"
                                   style="margin: 0;">
                             <mat-icon>{{action?.icon}}</mat-icon>
                           </button>

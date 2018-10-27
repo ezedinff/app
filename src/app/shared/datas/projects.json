@@ -1,0 +1,369 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": 21,
+      "program": {
+        "id": 2,
+        "program_category_id": 1,
+        "name": "Building sustainable likelihood",
+        "description": "To contribute to poverty alleviation and resilient, sustainable livelihoods in Arba Minch Zuria, Mirab Abaya and Bonke woredas of SNNPR through climate smart agricultural economic development.",
+        "created_at": "2018-07-31 22:18:56",
+        "updated_at": "2018-07-31 22:18:56",
+        "deleted_at": null
+      },
+      "category": {
+        "id": 1,
+        "name": "Irish Aid Programme",
+        "description": "",
+        "created_at": "2018-08-02 12:18:45",
+        "updated_at": "2018-08-02 12:18:45",
+        "deleted_at": null
+      },
+      "name": "EU KONSO Project",
+      "description": "Konso Development Agency is the consortium lead & Vita is implementing partner in this 24 month project. The project is intended to support 9,000 people to become resilient to climate change (extreme drought) through mitigation and adaptation measures. Duration: 2017- 2019.",
+      "featured": false,
+      "status": {
+        "id": 2,
+        "name": "In Progress",
+        "created_at": "2018-08-02 01:33:25",
+        "updated_at": "2018-08-02 01:33:25",
+        "deleted_at": null
+      },
+      "details": {
+        "id": 8,
+        "cluster": {
+          "id": 8,
+          "name": "South Omo",
+          "description": null,
+          "created_at": "2018-08-02 01:33:25",
+          "updated_at": "2018-08-02 01:33:25",
+          "deleted_at": null
+        },
+        "budget": 60000,
+        "goal": null,
+        "objective": "To enhance the social and economic stability of the target rural poor households in 5 kebeles/ village clusters.",
+        "manager1": {
+          "id": 1,
+          "name": "Ezedin Fedlu",
+          "email": "ezedin.fedlu@gmail.com",
+          "created_at": "2018-07-31 15:52:58",
+          "updated_at": "2018-07-31 15:53:00"
+        },
+        "manager2": {
+          "id": 1,
+          "name": "Ezedin Fedlu",
+          "email": "ezedin.fedlu@gmail.com",
+          "created_at": "2018-07-31 15:52:58",
+          "updated_at": "2018-07-31 15:53:00"
+        },
+        "starting_date": "2018-09-18 22:19:08",
+        "ending_date": "2023-09-01 02:00:00",
+        "created_at": {
+          "date": "2018-08-03 17:55:12.000000",
+          "timezone_type": 3,
+          "timezone": "UTC"
+        },
+        "updated_at": {
+          "date": "2018-08-03 17:55:12.000000",
+          "timezone_type": 3,
+          "timezone": "UTC"
+        },
+        "deleted_at": null
+      },
+      "beneficiary": [
+        {
+          "groups": {
+            "id": 1,
+            "name": "Male",
+            "description": "",
+            "created_at": "2018-08-02 08:40:55",
+            "updated_at": "2018-08-02 08:40:57",
+            "deleted_at": null
+          }
+        },
+        {
+          "groups": {
+            "id": 2,
+            "name": "Female",
+            "description": null,
+            "created_at": "2018-08-02 08:41:06",
+            "updated_at": "2018-08-02 08:41:07",
+            "deleted_at": null
+          }
+        }
+      ],
+      "implementer": [
+        {
+          "groups": {
+            "id": 1,
+            "name": "Vita",
+            "description": null,
+            "created_at": "2018-08-02 08:38:52",
+            "updated_at": "2018-08-02 08:38:54",
+            "deleted_at": null
+          }
+        },
+        {
+          "groups": {
+            "id": 2,
+            "name": "IDE",
+            "description": "",
+            "created_at": "2018-08-02 08:39:05",
+            "updated_at": "2018-08-02 08:39:07",
+            "deleted_at": null
+          }
+        },
+        {
+          "groups": {
+            "id": 4,
+            "name": "ECC SADCO",
+            "description": "",
+            "created_at": "2018-08-02 08:39:49",
+            "updated_at": "2018-08-02 08:39:51",
+            "deleted_at": null
+          }
+        }
+      ],
+      "outcomes": [
+        {
+          "id": 1,
+          "project_id": 21,
+          "type_id": 2,
+          "name": "1. Improved Sanitation & Health (& Nutrition) for Rural Households",
+          "description": null,
+          "parent_id": 0,
+          "created_at": "2018-08-05 11:45:21",
+          "updated_at": "2018-08-05 11:45:25",
+          "deleted_at": null
+        },
+        {
+          "id": 5,
+          "project_id": 21,
+          "type_id": 1,
+          "name": "2. xxxxxxxxx",
+          "description": null,
+          "parent_id": 0,
+          "created_at": "2018-08-10 16:35:54",
+          "updated_at": "2018-08-10 16:35:54",
+          "deleted_at": null
+        }
+      ],
+      "activities": [
+        {
+          "id": 1,
+          "name": "1.Strengthened local Institutions (FTCS)",
+          "description": null,
+          "output": [
+            {
+              "id": 1,
+              "name": "1.1 Increased Adoption of Agricultural Technologies & Practices",
+              "description": null,
+              "type_id": 1,
+              "outcome_id": 1,
+              "parent_id": 0,
+              "created_at": "2018-08-05 22:05:56",
+              "updated_at": "2018-08-05 22:05:58",
+              "deleted_at": null
+            }
+          ],
+          "created_at": {
+            "date": "2018-08-17 23:39:35.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+          },
+          "updated_at": {
+            "date": "2018-10-06 02:15:31.000000",
+            "timezone_type": 3,
+            "timezone": "UTC"
+          },
+          "status": {
+            "id": 2,
+            "name": "In Progress",
+            "created_at": "2018-08-02 01:33:25",
+            "updated_at": "2018-08-02 01:33:25",
+            "deleted_at": null
+          },
+          "featured": true,
+          "category": {
+            "id": 1,
+            "name": "Training",
+            "created_at": "2018-08-17 18:36:55",
+            "updated_at": "2018-08-17 18:36:58",
+            "deleted_at": null
+          },
+          "kebele": [
+            {
+              "id": 1,
+              "woreda_id": 4,
+              "name": "Ariyakayisa",
+              "created_at": "2018-08-02 00:44:52",
+              "updated_at": "2018-08-02 00:44:54",
+              "deleted_at": null
+            }
+          ],
+          "start_date": "2018-08-16T23:00:00.000Z",
+          "end_date": "2018-08-30T23:00:00.000Z",
+          "implementing_partners": "[{id: 1, name: Vita},{id: 2, name: IDE}]",
+          "activities": [
+            {
+              "id": 2,
+              "name": "1.1 xxxxxxxxxx",
+              "output_id": 1,
+              "description": null,
+              "featured": false,
+              "status_id": 2,
+              "activity_category_id": 1,
+              "kebele_id": 1,
+              "baseline": 0,
+              "target": 20,
+              "start_date": "2018-08-16T23:00:00.000Z",
+              "end_date": "2018-08-30T23:00:00.000Z",
+              "implementing_partners": "[{id: 2, name: IDE}]",
+              "parent_id": 1,
+              "created_at": "2018-08-18 00:42:28",
+              "updated_at": "2018-10-06 01:16:43",
+              "deleted_at": null
+            }
+          ],
+          "indicators": [],
+          "files": [
+            {
+              "id": 4,
+              "name": "6584522-EckhartTolle-ThePowerOfNow.pdf",
+              "tag": "pdf",
+              "file_path": "/storage/mWd2SbNlDhkTbpTHcbpjOVR7BNDCrSzy93MtdE5X.pdf",
+              "is_activity_file": true,
+              "created_at": {
+                "date": "2018-09-28 21:23:59.000000",
+                "timezone_type": 3,
+                "timezone": "UTC"
+              },
+              "user": {
+                "id": 1,
+                "name": "Ezedin Fedlu",
+                "email": "ezedin.fedlu@gmail.com",
+                "created_at": "2018-07-31 15:52:58",
+                "updated_at": "2018-07-31 15:53:00"
+              }
+            },
+            {
+              "id": 5,
+              "name": "Algorithms.pdf",
+              "tag": "pdf",
+              "file_path": "/storage/KyhDp8GpWuf7RBcSTd70BxcgdkXntH4ahTLr6YG0.pdf",
+              "is_activity_file": true,
+              "created_at": {
+                "date": "2018-09-28 22:20:59.000000",
+                "timezone_type": 3,
+                "timezone": "UTC"
+              },
+              "user": {
+                "id": 1,
+                "name": "Ezedin Fedlu",
+                "email": "ezedin.fedlu@gmail.com",
+                "created_at": "2018-07-31 15:52:58",
+                "updated_at": "2018-07-31 15:53:00"
+              }
+            },
+            {
+              "id": 6,
+              "name": "2. Selenium Basics.docx",
+              "tag": "docx",
+              "file_path": "/storage/FFI1l3VfKNCj9G1r07Ie62Su4SYuPzlXspzpmzRx.docx",
+              "is_activity_file": true,
+              "created_at": {
+                "date": "2018-09-29 03:32:30.000000",
+                "timezone_type": 3,
+                "timezone": "UTC"
+              },
+              "user": {
+                "id": 1,
+                "name": "Ezedin Fedlu",
+                "email": "ezedin.fedlu@gmail.com",
+                "created_at": "2018-07-31 15:52:58",
+                "updated_at": "2018-07-31 15:53:00"
+              }
+            },
+            {
+              "id": 8,
+              "name": "4_6046327841161741252 (2).pdf",
+              "tag": "pdf",
+              "file_path": "/storage/QZIOS8h1xHwjx6kxM5AovaKemgigZPc9F2m7ksv8.pdf",
+              "is_activity_file": true,
+              "created_at": {
+                "date": "2018-10-03 03:01:29.000000",
+                "timezone_type": 3,
+                "timezone": "UTC"
+              },
+              "user": {
+                "id": 1,
+                "name": "Ezedin Fedlu",
+                "email": "ezedin.fedlu@gmail.com",
+                "created_at": "2018-07-31 15:52:58",
+                "updated_at": "2018-07-31 15:53:00"
+              }
+            }
+          ],
+          "milestones": [
+            {
+              "id": 1,
+              "name": "task one",
+              "start": "2018-10-01 00:00:00",
+              "end": "2018-12-31 00:00:00",
+              "baseline": 0,
+              "target": 100,
+              "actual": "45",
+              "budget": 2000,
+              "percentComplete": 0.45
+            }
+          ],
+          "actualValues": [
+            {
+              "id": 1,
+              "name": "task one",
+              "activity_id": 1,
+              "start": "2018-10-01 00:00:00",
+              "end": "2018-12-31 00:00:00",
+              "baseline": 0,
+              "target": 100,
+              "budget": 2000,
+              "created_at": "2018-10-05 17:46:44",
+              "updated_at": "2018-10-05 17:46:44",
+              "deleted_at": null,
+              "milestone_id": 1,
+              "value": 35
+            },
+            {
+              "id": 2,
+              "name": "task one",
+              "activity_id": 1,
+              "start": "2018-10-01 00:00:00",
+              "end": "2018-12-31 00:00:00",
+              "baseline": 0,
+              "target": 100,
+              "budget": 2000,
+              "created_at": "2018-10-13 09:53:07",
+              "updated_at": "2018-10-13 09:53:07",
+              "deleted_at": null,
+              "milestone_id": 1,
+              "value": 10
+            }
+          ]
+        }
+      ],
+      "created_at": {
+        "date": "2018-08-03 17:55:12.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      },
+      "updated_at": {
+        "date": "2018-08-04 15:18:04.000000",
+        "timezone_type": 3,
+        "timezone": "UTC"
+      },
+      "deleted_at": null
+    }
+  ],
+  "message": "Projects retrieved successfully"
+}
