@@ -1,1 +1,12 @@
-<ez-table [type]="'user'" [datas]="datas" [setting]="setting" (actionPerformed)="getAction($event)"></ez-table>
+<mat-toolbar class="container-fluid" fxLayout="row">
+  <span fxFlex></span>
+  <button mat-button fxFlex="5" fxLayoutAlign="end">
+    <mat-icon>save</mat-icon>
+    &nbsp;save {{team}}
+  </button>
+</mat-toolbar>
+<div fxLayout="row" fxLayout.xs="column" class="container-fluid" style="margin-top: 16px"  fxLayoutGap="16px">
+  <users-list fxFlex ></users-list>
+  <member-list fxFlex></member-list>
+  <permission-list fxFlex ></permission-list>
+</div>

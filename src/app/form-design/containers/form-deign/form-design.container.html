@@ -1,0 +1,7 @@
+<div class="container-fluid" style="padding-top: 16px;">
+  <mat-toolbar color="primary">Form Design Tool</mat-toolbar>
+  <div fxLayout="row" fxLayout.xs="column" style="padding-top: 16px;">
+    <form-building-block fxFlex="20" (elementSelected)="getElementSelected($event)"></form-building-block>
+    <form-view fxFlex="80" [element$]="newElement$"></form-view>
+  </div>
+</div>

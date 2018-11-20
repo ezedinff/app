@@ -4,7 +4,7 @@
   </mat-toolbar>
 </div>
 <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px" class="container-fluid" style="margin-bottom: 20%; margin-top: 24px;">
-  <app-team-list fxFlex="23.52" fxFlex.xs="100"></app-team-list>
+  <app-team-list fxFlex="23.52" fxFlex.xs="100" *ngFor="let team of teams" [team]="team"></app-team-list>
 </div>
 <button color="primary" mat-fab style="position: fixed; bottom: 2em; right: 2em;" (click)="openDialog('create')">
   <mat-icon>add</mat-icon>

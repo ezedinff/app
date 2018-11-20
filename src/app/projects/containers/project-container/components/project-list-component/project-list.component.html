@@ -3,11 +3,9 @@
     <h1 class="mat-headline center-align">{{title}}</h1>
   </mat-toolbar>
 </div>
-<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px" class="container-fluid" style="margin-bottom: 20%;">
-  <app-project fxFlex="23.52" fxFlex.xs="100"></app-project>
-  <app-project fxFlex="23.52" fxFlex.xs="100"></app-project>
-  <app-project fxFlex="23.52" fxFlex.xs="100"></app-project>
-  <app-project fxFlex="23.52" fxFlex.xs="100"></app-project>
-  <app-project fxFlex="23.52" fxFlex.xs="100"></app-project>
-  <app-project fxFlex="23.52" fxFlex.xs="100"></app-project>
+<div fxLayout="row" fxLayout.xs="column" fxLayoutGap="16px" class="container-fluid" style="margin-bottom: 20%;   flex-wrap: wrap;">
+  <app-project fxFlex="23.52" fxFlex.xs="100"
+               *ngFor="let project of projects"
+               [project]="project"
+               (detail)="detail($event)"></app-project>
 </div>

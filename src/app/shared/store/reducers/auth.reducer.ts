@@ -19,6 +19,7 @@ export function reducer(state = INITIAL_STATE, action: AuthActions): State {
     case AuthActionTypes.GetUserInfoSuccess:
       return {...state, loaded: true, user: action.payload, loading: false, failed: false};
     case AuthActionTypes.GetUserInfoFail:
+      location.assign('http://localhost:4200');
       break;
     default:
       return state;

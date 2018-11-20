@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Actions, Effect, ofType} from '@ngrx/effects';
-import {AuthService} from '../../containers/layout/auth.service';
+import {AuthService} from '../../../auth/auth.service';
 import {Action, Store} from '@ngrx/store';
 import * as fromAuth from '../reducers/auth.reducer';
 import {Observable, of} from 'rxjs';

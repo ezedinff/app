@@ -1,17 +1,11 @@
-import {Compiler, Component, Inject, NgModule, NgModuleFactory, OnInit} from '@angular/core';
+import {Compiler, Component, ComponentFactoryResolver, Inject, NgModule, NgModuleFactory, OnInit, ViewChild} from '@angular/core';
 import {
   MAT_DIALOG_DATA,
-  MatButtonModule, MatButtonToggleModule, MatCheckboxModule, MatDatepickerModule,
-  MatDialogModule,
-  MatFormFieldModule,
-  MatIconModule,
-  MatInputModule, MatNativeDateModule,
-  MatSelectModule,
-  MatToolbarModule
 } from '@angular/material';
-import {FormBuilder, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {activityForm, indicatorForm, milestoneForm, outcomeForm, outputForm} from '../../constants/template';
-import {forms} from '../../constants/formMetaData';
+import {LogframeFormBuilderService} from '../../services/logframe-form-builder.service';
+import {DynamicDirective} from '../../directives/dynamic.directive';
+import {OutcomeComponent} from '../outcome/outcome.component';
+import {FormComponent} from '../../models/form-component';
 
 @Component({
   selector: 'app-dialog',
@@ -19,92 +13,29 @@ import {forms} from '../../constants/formMetaData';
   templateUrl: './dialog.component.html'
 })
 export class DialogComponent implements OnInit {
-  dynamicComponent;
-  dynamicModule: NgModuleFactory<any>;
+  @ViewChild(DynamicDirective) dynamic: DynamicDirective;
   title: string;
   constructor(private compiler: Compiler,
-              @Inject(MAT_DIALOG_DATA) public data: any) {
+              @Inject(MAT_DIALOG_DATA) public data: any,
+              private logframeFormBuilderService: LogframeFormBuilderService,
+              private componentFactoryResolver: ComponentFactoryResolver) {
   }
 
   ngOnInit(): void {
-    this.title = this.getTitle(this.data['type'], this.data['action']);
-    this.dynamicComponent = this.createNewComponent(this.getTemplate(this.data['type']), this.data);
-    this.dynamicModule = this.compiler.compileModuleSync(this.createComponentModule(this.dynamicComponent));
+    this.title = this.logframeFormBuilderService.getTitle(this.data['type'], this.data['action']);
+    this.loadComponent(this.logframeFormBuilderService.getModel(this.data['type']));
   }
-  getTemplate(type: string) {
-    switch (type) {
-      case 'outcome':
-        return outcomeForm;
-      case 'output':
-        return outputForm;
-      case 'indicator':
-        return indicatorForm;
-      case 'activity':
-        return activityForm;
-      case 'milestone':
-        return milestoneForm;
-      default:
-        return type;
-    }
-  }
-  getTitle(type: string, action: string) {
-    switch (action) {
-      case 'add':
-        return `${action} new ${type}`;
-      default:
-        return `${action} ${type}`;
-    }
-  }
-  protected createComponentModule(componentType: any) {
-    @NgModule({
-      imports: [
-        MatToolbarModule,
-        MatFormFieldModule,
-        MatButtonModule,
-        MatInputModule,
-        MatSelectModule,
-        MatIconModule,
-        MatDialogModule,
-        ReactiveFormsModule,
-        MatDatepickerModule,
-        MatCheckboxModule,
-        MatNativeDateModule
-      ],
-      declarations: [componentType],
-      entryComponents: [componentType]
-    })
-    class RuntimeComponentModule {
-    }
+  loadComponent(component) {
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(component);
 
-    return RuntimeComponentModule;
-  }
+    const viewContainerRef = this.dynamic.viewContainerRef;
+    viewContainerRef.clear();
 
-  protected createNewComponent(text: string, data: any) {
-    const template = `${text}`;
-
-    @Component({
-      selector: 'app-dynamic-component',
-      template: template,
-      styleUrls: ['./dialog.component.scss']
-    })
-    class DynamicComponent implements OnInit {
-      text: any;
-      data: any;
-      generalForm: FormGroup;
-      constructor(private formBuilder: FormBuilder) {}
-      ngOnInit(): void {
-        this.text = text;
-        this.data = data;
-        this.createForm(forms[`${data['type']}_form`]);
-      }
-      createForm(constrols) {
-        this.generalForm = this.formBuilder.group(constrols);
-      }
-      submit() {
-        console.log(this.generalForm);
-      }
-    }
-
-    return DynamicComponent;
+    const componentRef = viewContainerRef.createComponent(componentFactory);
+    (<FormComponent>componentRef.instance).id = this.data['id'];
+    (<FormComponent>componentRef.instance).action = this.data['action'];
+    (<FormComponent>componentRef.instance).type = this.data['type'];
+    (<FormComponent>componentRef.instance).from = this.data['from'];
+    (<FormComponent>componentRef.instance).data = this.data['data'];
   }
 }

@@ -1,11 +1,15 @@
 import {Model} from '../../../../../../shared/models/model';
-import {FormGroup} from '@angular/forms';
-
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {outcomeFormTemplate} from '../constants/template';
 export class Outcome implements Model {
   api_route = '/outcomes';
-
+  private outcomeForm = {
+    type: ['', Validators.required],
+    name: ['', Validators.required]
+  };
+  constructor(private formBuilder: FormBuilder, private id: number) {}
   createForm(): FormGroup {
-    return undefined;
+    return this.formBuilder.group(this.outcomeForm);
   }
 
   delete(id: number): boolean {
@@ -24,7 +28,10 @@ export class Outcome implements Model {
     return undefined;
   }
 
-  saveData(): boolean {
+  saveData(form: FormGroup): boolean {
     return false;
+  }
+  getTemplate() {
+    return outcomeFormTemplate;
   }
 }

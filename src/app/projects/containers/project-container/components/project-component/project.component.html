@@ -1,7 +1,7 @@
-<mat-card style="padding-top: 0; padding-bottom: 8px;" (click)="goToDetail()">
-  <div  class="mat-card-image board" style="margin-bottom: 0;">
-    <p  class="title">project Name</p>
+<mat-card style="padding-top: 0; padding-bottom: 8px;" >
+  <div  class="mat-card-image board" style="margin-bottom: 0;" (click)="dispatchProjectId(project.id)">
+    <p  class="title">{{project.attributes.name}}</p>
   </div>
-  <p style="margin-block-start: 0em; margin-block-end: 0em; margin: 0;">Cluster Name</p>
-  <p style="margin-block-start: 0em; margin-block-end: 0em; margin: 0;">Category</p>
+  <p style="margin-block-start: 0em; margin-block-end: 0em; margin: 0;">{{project.details.cluster.name}}</p>
+  <p style="margin-block-start: 0em; margin-block-end: 0em; margin: 0;">{{project.category.name}}</p>
 </mat-card>

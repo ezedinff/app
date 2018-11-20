@@ -36,6 +36,12 @@ export class HttpService {
       catchError(err => this.httpResponseHandler.onCatch(err))
     );
   }
+  put(url: string, id: number, body): Observable<any> {
+    return this.http.put(this.createUrl(`${url}/${id}`), body, {headers: this.httpHeaders}).pipe(
+      map(res => this.handleReponse(res)),
+      catchError(err => this.httpResponseHandler.onCatch(err))
+    );
+  }
   handleReponse(response: any) {
     if (response.status) {
         return response.data;

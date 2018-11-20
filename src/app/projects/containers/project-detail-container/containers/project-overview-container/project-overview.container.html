@@ -1,10 +1,21 @@
-<div fxLayout="row" fxLayout.xs="column" class="container-fluid" fxLayoutGap="16px" style="padding-top: 16px;">
-  <app-detail-box fxFlex [title]="'Description'" [message]="'this is the message area'" (editClicked)="editClicked()"></app-detail-box>
-  <app-detail-box fxFlex [title]="'Description'" [message]="'this is the message area'" (editClicked)="editClicked()"></app-detail-box>
-  <app-detail-box fxFlex [title]="'Description'" [message]="'this is the message area'" (editClicked)="editClicked()"></app-detail-box>
-</div>
+<div style="margin-bottom: 20%;" *ngIf="project$ | async as project">
+  <div fxLayout="row" fxLayout.xs="column" class="container-fluid" fxLayoutGap="16px" style="padding-top: 16px;" >
+    <app-detail-box fxFlex [title]="'Description'" [message]="project?.attributes?.description" (editClicked)="editClicked()"></app-detail-box>
+    <app-detail-box fxFlex [title]="'Objective'" [message]="project?.details?.objective" (editClicked)="editClicked()"></app-detail-box>
+    <app-detail-box fxFlex [title]="'Goal'" [message]="project?.details?.goal" (editClicked)="editClicked()"></app-detail-box>
+  </div>
 
-<div fxLayout="row" fxLayout.xs="column" class="container-fluid" fxLayoutGap="16px" style="padding-top: 16px;">
-  <app-project-detail-list fxFlex="25" [details]="'details'"></app-project-detail-list>
-  <div fxFlex="75"></div>
+  <div fxLayout="row" fxLayout.lt-md="column" class="container-fluid" fxLayoutWrap="none" fxLayoutGap="16px" style="padding-top: 16px;">
+    <app-project-detail-list fxFlex="28.5" fxFlex.lt-md="100"
+                             [details]="project?.details"
+                             [category]="project?.category"
+                             [implementers]="project?.implementers"
+                             [beneficiaries]="project?.beneficiaries"></app-project-detail-list>
+    <div fxFlex="70">
+      <div fxLayout="column" fxLayoutGap="16px">
+        <ez-table fxFlexFill fxFlex.lt-md="100" [title]="'Favourite Activities'" [setting]="getActivityTableSetting()" [datas]="activities$ | async"></ez-table>
+        <ez-table fxFlexFill fxFlex.lt-md="100" [title]="'Project Files'" [setting]="getActivityTableSetting()" [datas]="activities$ | async"></ez-table>
+      </div>
+    </div>
+  </div>
 </div>

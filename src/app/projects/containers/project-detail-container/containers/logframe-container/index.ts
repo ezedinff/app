@@ -4,6 +4,10 @@ import {TreeModule} from './components/tree';
 import {LogframeContainer} from './logframe.container';
 import {RouterModule, Routes} from '@angular/router';
 import {MatCardModule, MatDialogModule} from '@angular/material';
+import {LogframeFormBuilderService} from './services/logframe-form-builder.service';
+import {OutcomeSandbox} from '../../../../sandbox/outcome.sandbox';
+import {ProjectSandbox} from '../../../../sandbox/project.sandbox';
+import {OutputSanbox} from '../../../../sandbox/output.sanbox';
 const routes: Routes = [
   {path: '',  component: LogframeContainer}
 ];
@@ -11,6 +15,6 @@ const routes: Routes = [
   imports: [CommonModule, TreeModule, MatCardModule, MatDialogModule, RouterModule.forChild(routes)],
   declarations: [LogframeContainer],
   exports: [LogframeContainer, RouterModule],
-  providers: [],
+  providers: [LogframeFormBuilderService, OutcomeSandbox, ProjectSandbox, OutputSanbox],
 })
 export class LogframeModule { }

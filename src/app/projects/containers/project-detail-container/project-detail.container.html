@@ -1,2 +1,2 @@
-<app-project-detail-toolbar></app-project-detail-toolbar>
+<app-project-detail-toolbar [project_id]="id" *ngIf="$project$  | async as project" [title]= "project.attributes.name"></app-project-detail-toolbar>
 <router-outlet></router-outlet>

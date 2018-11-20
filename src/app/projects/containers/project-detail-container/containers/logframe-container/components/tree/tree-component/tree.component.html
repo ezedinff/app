@@ -9,11 +9,59 @@
     </div>
   </div>
 </div>
-<app-tree-element [m]="0" [title]="'project title'" [type]="'project'">
-  <app-tree-element [m]="0.5" [title]="'Outcome title'" [type]="'outcome'">
-    <app-tree-element [m]="1" [title]="'Output title'" [type]="'output'">
-      <app-tree-element [m]="1.5" [title]="'Activity title'" [type]="'activity'"></app-tree-element>
+<ng-container *ngIf="project">
+  <app-tree-element  [m]="0" [title]="project.attributes.name" [type]="'project'" [data]="project" [id]="project.id" [showToggle]="project?.outcomes !== []">
+    <app-tree-element [m]="0.5" [title]="outcome?.attributes?.name" [type]="'outcome'"  [data]="outcome" [id]="outcome?.id" [showToggle]="isVisible(outcome?.outcomes) || isVisible(outcome?.indicators) || isVisible(outcome.outputs)"   *ngFor="let outcome of project?.outcomes"> <!--outcome tree-->
+      <app-tree-element [m]="1" [title]="indicator.attributes?.name" [type]="'indicator'" [id]="indicator?.id" [indicator]="indicator" *ngFor="let indicator of outcome.indicators"></app-tree-element>
+      <app-tree-element [m]="1" [title]="out?.attributes.name" [type]="'outcome'" [id]="out?.id" [data]="out" [showToggle]="isVisible(out?.outcomes) || isVisible(out?.indicators) || isVisible(out.outputs)" *ngFor="let out of outcome?.outcomes">
+        <app-tree-element [m]="1" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id"  [indicator]="ind" *ngFor="let ind of out.indicators"></app-tree-element>
+
+        <app-tree-element [m]="1" [title]="output?.name" [type]="'output'" [data]="output" [showToggle]="isVisible(output?.indicators) || isVisible(output?.outputs)" [id]="output?.id"  *ngFor="let output of out?.outputs">
+          <app-tree-element [m]="1.5" [title]="ind.attributes?.name" [type]="'indicator'"  [id]="ind?.id" [indicator]="ind" *ngFor="let ind of output.indicators"></app-tree-element>
+          <app-tree-element [m]="1.5" [title]="outp.name" [type]="'output'" [data]="outp" [showToggle]="isVisible(outp?.indicators) || isVisible(outp?.outputs)" *ngFor="let outp of output?.outputs">
+            <app-tree-element [m]="2" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outp.indicators"></app-tree-element>
+            <app-tree-element [m]="2" [title]="outpt.name" [type]="'output'" [data]="outpt" [showToggle]="isVisible(outpt?.indicators) || isVisible(outpt?.outputs)"  *ngFor="let outpt of outp?.outputs">
+              <app-tree-element [m]="2.5" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outpt.indicators"></app-tree-element>
+              <app-tree-element [m]="2.5" [title]="actv.name" [type]="'activity'" [data]="actv" [showToggle]="isVisible(actv?.activities)" [id]="actv?.id" *ngFor="let actv of outpt?.activities">
+                <app-tree-element [m]="3" [title]="a.name" [type]="'activity'" [id]="a?.id" [data]="a" *ngFor="let a of act?.activities"></app-tree-element>
+              </app-tree-element>
+            </app-tree-element>
+
+            <app-tree-element [m]="2" [title]="act.name" [type]="'activity'" [showToggle]="isVisible(act?.activities)" *ngFor="let act of outp?.activities">
+              <app-tree-element [m]="2.5" [title]="a.name" [type]="'activity'" [id]="a?.id" [data]="a"  *ngFor="let a of act?.activities"></app-tree-element>
+            </app-tree-element>
+          </app-tree-element>
+
+          <app-tree-element [m]="1.5" [title]="activity.name" [type]="'activity'" [showToggle]="isVisible(activity?.activities)"  *ngFor="let activity of output?.activities">
+            <app-tree-element [m]="2" [title]="a.name" [type]="'activity'" [id]="a?.id" [data]="a"  *ngFor="let a of activity?.activities"></app-tree-element>
+          </app-tree-element>
+
+        </app-tree-element>
+
+      </app-tree-element>
+
+      <app-tree-element [m]="1" [title]="output?.name" [type]="'output'" [data]="output" [showToggle]="isVisible(output?.indicators) || isVisible(output?.outputs)" [id]="output?.id"   *ngFor="let output of outcome?.outputs">
+        <app-tree-element [m]="1.5" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of output.indicators"></app-tree-element>
+        <app-tree-element [m]="1.5" [title]="outp.name" [type]="'output'" [data]="outp" [showToggle]="isVisible(outp?.indicators) || isVisible(outp?.outputs)" *ngFor="let outp of output?.outputs">
+          <app-tree-element [m]="2" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outp.indicators"></app-tree-element>
+          <app-tree-element [m]="2" [title]="outpt.name" [type]="'output'" [data]="outpt" [showToggle]="isVisible(outpt?.indicators) || isVisible(outpt?.outputs)"  *ngFor="let outpt of outp?.outputs">
+            <app-tree-element [m]="1" [title]="ind.attributes?.name" [type]="'indicator'"  [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outpt.indicators"></app-tree-element>
+            <app-tree-element [m]="2.5" [title]="actv.name" [type]="'activity'" [data]="actv" [showToggle]="isVisible(actv?.activities)" [id]="actv?.id" *ngFor="let actv of outpt?.activities">
+              <app-tree-element [m]="3" [title]="a.name" [type]="'activity'" [id]="a?.id" [data]="a" *ngFor="let a of act?.activities"></app-tree-element>
+            </app-tree-element>
+          </app-tree-element>
+
+          <app-tree-element [m]="2" [title]="act.name" [type]="'activity'" [showToggle]="isVisible(act?.activities)" *ngFor="let act of outp?.activities">
+            <app-tree-element [m]="2.5" [title]="a.name" [type]="'activity'"  [id]="a?.id" [data]="a" *ngFor="let a of act?.activities"></app-tree-element>
+          </app-tree-element>
+        </app-tree-element>
+
+        <app-tree-element [m]="1.5" [title]="activity.name" [type]="'activity'" [showToggle]="isVisible(activity?.activities)"  *ngFor="let activity of output?.activities">
+          <app-tree-element [m]="2" [title]="a.name" [type]="'activity'" [id]="a?.id" [data]="a" *ngFor="let a of activity?.activities"></app-tree-element>
+        </app-tree-element>
+      </app-tree-element>
+
     </app-tree-element>
   </app-tree-element>
-</app-tree-element>
 
+</ng-container>

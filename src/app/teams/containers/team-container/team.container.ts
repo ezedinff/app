@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {TeamDialogComponent} from '../../components/team-dialog/team-dialog.component';
+import {TeamSandbox} from '../../sandbox/team.sandbox';
 
 @Component({
   selector: 'app-team',
@@ -8,7 +9,8 @@ import {TeamDialogComponent} from '../../components/team-dialog/team-dialog.comp
   templateUrl: './team.container.html'
 })
 export class TeamContainer implements OnInit {
-  constructor(private matdialog: MatDialog) {
+  teams;
+  constructor(private matdialog: MatDialog, private teamSandbox: TeamSandbox) {
   }
 
   openDialog(action: string) {
@@ -20,5 +22,13 @@ export class TeamContainer implements OnInit {
   }
 
   ngOnInit(): void {
+    this.teamSandbox.teams$.subscribe(teams => {
+      let temp = [];
+      for (let i = 0; i < teams.length; i++) {
+        temp = temp.concat(teams[i]);
+      }
+      this.teams = temp;
+      console.log(temp);
+    });
   }
 }

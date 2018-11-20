@@ -1,0 +1,11 @@
+<mat-list>
+  <mat-list-item><button mat-button (click)="sendSelectedElement('text_input')"><mat-icon>text_fields</mat-icon>&nbsp;&nbsp;Text Input</button></mat-list-item>
+  <mat-list-item><button mat-button (click)="sendSelectedElement('text_area')"><mat-icon>description</mat-icon>&nbsp;&nbsp;Text Area</button></mat-list-item>
+  <mat-list-item><button mat-button (click)="sendSelectedElement('check_box')"><mat-icon>check_box</mat-icon>&nbsp;&nbsp;Checkbox</button></mat-list-item>
+  <mat-list-item><button mat-button (click)="sendSelectedElement('radio_button')"><mat-icon>radio_button_checked</mat-icon>&nbsp;&nbsp;Radio Button</button></mat-list-item>
+  <mat-list-item><button mat-button (click)="sendSelectedElement('drop_down')"><mat-icon>arrow_drop_down</mat-icon>&nbsp;&nbsp;Drop down</button></mat-list-item>
+  <mat-list-item><button mat-button (click)="sendSelectedElement('date_range')"><mat-icon>date_range</mat-icon>&nbsp;&nbsp;Date</button></mat-list-item>
+  <mat-list-item><button mat-button [disabled]="!fileInputEnabled" (click)="sendSelectedElement('file')"><mat-icon>attachment</mat-icon>&nbsp;&nbsp;File</button></mat-list-item>
+  <mat-list-item><button mat-button (click)="sendSelectedElement('location_input')"><mat-icon>location_on</mat-icon>&nbsp;&nbsp;Location</button></mat-list-item>
+  <mat-list-item><button mat-button (click)="sendSelectedElement('insert_link')"><mat-icon>insert_link</mat-icon>&nbsp;&nbsp;Link</button></mat-list-item>
+</mat-list>

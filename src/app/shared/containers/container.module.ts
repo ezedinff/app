@@ -7,7 +7,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {MatSidenavModule, MatToolbarModule} from '@angular/material';
 import {LayoutSandbox} from './layout/layout.sandbox';
 import {AuthEffect} from '../store/effects/auth.effect';
-import {AuthService} from './layout/auth.service';
+import {AuthService} from '../../auth/auth.service';
 const CONTAINERS = [
 
 ];
@@ -17,8 +17,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 const routes: Routes = [
   {path: '', component: LayoutContainer, children: [
       {
-        path: 'projects', loadChildren: '../../projects/project.module#ProjectModule'
+        path: 'projects', loadChildren: '../../projects/containers/project-container/index#ProjectContainerModule'
       },
+      {path: 'projects/:id',
+        loadChildren:
+          '../../projects/containers/project-detail-container/index#ProjectDetailModule'
+      },
+      {path: 'form-design', loadChildren: '../../form-design/index#FormDesignModule'},
+      {path: 'my-forms', loadChildren: '../../my-forms/index#MyFormModule'},
       {
         path: 'teams', loadChildren: '../../teams/index#TeamModule'
       }

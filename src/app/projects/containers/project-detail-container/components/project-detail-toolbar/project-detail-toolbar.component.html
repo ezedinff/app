@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="back()">
       <mat-icon>arrow_back</mat-icon>
     </button>
-    <h1 class="mat-headline">Project Name</h1>
+    <h1 class="mat-headline">{{title}}</h1>
     <span class="spacer"></span>
     <app-project-detail-toolbar-menu [menus]="menus" (toggleMenu)="toggleMenu()"></app-project-detail-toolbar-menu>
   </mat-toolbar>

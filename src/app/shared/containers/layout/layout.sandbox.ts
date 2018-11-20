@@ -1,14 +1,22 @@
 import {Store} from '@ngrx/store';
 import * as store from '../../store';
-import * as authActions from '../../store/actions/auth.action';
 import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import {getLoggedUser} from '../../store';
+import {BaseSandbox} from '../../sandbox/base.sandbox';
+import * as metaAction from '../../store/actions/meta-data.action';
+import * as projectAction from '../../store/actions/project.action';
+import * as myFormAction from '../../store/actions/my-form.action';
 @Injectable()
-export class LayoutSandbox {
-  loggedUser$: Observable<any> = this.appState$.select(getLoggedUser);
-  constructor(
-    protected appState$: Store<store.State>
-  ) {
+export class LayoutSandbox extends BaseSandbox {
+  constructor(protected appState$: Store<store.State>) {
+    super(appState$);
+  }
+  loadMetaData() {
+    this.appState$.dispatch(new metaAction.Load());
+  }
+  loadMainData() {
+    this.appState$.dispatch(new projectAction.Load());
+  }
+  loadForms() {
+    this.appState$.dispatch(new myFormAction.Load());
   }
 }

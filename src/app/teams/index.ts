@@ -1,6 +1,14 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {MatButtonModule, MatCardModule, MatDialogModule, MatIconModule, MatToolbarModule} from '@angular/material';
+import {
+  MatButtonModule,
+  MatCardModule,
+  MatDialogModule,
+  MatFormFieldModule,
+  MatIconModule,
+  MatInputModule, MatListModule, MatSelectModule,
+  MatToolbarModule
+} from '@angular/material';
 import {TeamContainer} from './containers/team-container/team.container';
 import {TeamListComponent} from './components/team-list-component/team-list.component';
 import {RouterModule, Routes} from '@angular/router';
@@ -10,12 +18,28 @@ import { PerfectScrollbarConfigInterface, PERFECT_SCROLLBAR_CONFIG, PerfectScrol
 import {MembersContainer} from './containers/members-container/members.container';
 import {MembersComponent} from './components/members.component/members.component';
 import {EzTableModule} from '../shared/components/ez-table/ez-table.module';
+import {TeamSandbox} from './sandbox/team.sandbox';
+import {TeamComponent} from './components/team/team.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import {TeamFormDirective} from './directives/team-form.directive';
+import {Member} from './components/member/member';
+import {UsersList} from './components/users-list/users-list';
+import {MemberList} from './components/member-list/member-list';
+import {PermissionList} from './components/permission-list/permission-list';
+import {HighlightDirective} from './directives/highlight.directive';
 const COMPONENT = [
   TeamContainer,
   MembersContainer,
   TeamListComponent,
   TeamDialogComponent,
-  MembersComponent
+  MembersComponent,
+  TeamFormDirective,
+  TeamComponent,
+  Member,
+  UsersList,
+  MemberList,
+  PermissionList,
+  HighlightDirective
 ];
 const routes: Routes = [
   {path: '', component: TeamContainer},
@@ -32,10 +56,14 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatIconModule,
     FlexLayoutModule,
     MatDialogModule,
-    MatDialogModule,
     RouterModule.forChild(routes),
     PerfectScrollbarModule,
-    EzTableModule
+    EzTableModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatListModule
   ],
   declarations: COMPONENT,
   exports: [COMPONENT, RouterModule],
@@ -45,6 +73,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
       useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
     }
   ],
-  entryComponents: [TeamDialogComponent]
+  entryComponents: [TeamDialogComponent, TeamComponent, Member]
 })
 export class TeamModule {}

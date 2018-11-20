@@ -1,7 +1,7 @@
-<div fxLayout="column" class="container-fluid" style="margin-top: 16px">
+<div fxLayout="column" class="container-fluid" style="margin-top: 16px; margin-bottom: 20%;">
   <mat-card>
     <mat-card-content>
-      <app-tree></app-tree>
+      <app-tree [project]="project$ | async"></app-tree>
     </mat-card-content>
   </mat-card>
 </div>

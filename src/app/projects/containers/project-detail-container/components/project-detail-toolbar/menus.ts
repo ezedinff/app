@@ -1,26 +1,26 @@
 export const menus = [
   {
     name: 'Overview',
-    link: 'detail/P/overview/'
+    link: 'overview'
   },
   {
     name: 'Activities',
-    link: 'detail/P/activities/'
+    link: 'activities'
   },
   {
     name: 'Logframe',
-    link: 'detail/P/logframe/'
+    link: 'logframe'
   },
   {
     name: 'Data Entry',
-    link: 'detail/P/overview/'
+    link: 'overview'
   },
   {
     name: 'Finance',
-    link: 'detail/P/finance/'
+    link: 'finance'
   },
   {
     name: 'Expenditures',
-    link: 'detail/P/expenditures/'
+    link: 'expenditures'
   },
 ];
