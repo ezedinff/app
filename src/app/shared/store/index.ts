@@ -8,6 +8,11 @@ import * as meta from './reducers/meta-data.reducers';
 import * as formDesign from './reducers/form-design.reducer';
 import * as myForm from './reducers/my-form.reducer';
 import {getTimePlans} from './reducers/meta-data.reducers';
+import {getCurrentProject, getCurrentSelectedId, getProjects} from './reducers/project.reducer';
+import * as meta from './reducers/meta-data.reducers';
+import * as formDesign from './reducers/form-design.reducer';
+import * as myForm from './reducers/my-form.reducer';
+import {getActivityCategories, getImplementers, getKebeles, getStatuses, getTimePlans} from './reducers/meta-data.reducers';
 import {Project} from '../models';
 import {getCurrentSelectedElement, getElements, getFormName, getupdate} from './reducers/form-design.reducer';
 import {getForms, getSelectedFormId} from './reducers/my-form.reducer';
@@ -60,6 +65,10 @@ export const getError = createSelector(getProjectState, (state: project.State) =
 // creating meta data selectors
 const getMetaDataState = createFeatureSelector('metaData');
 export const timeplans = createSelector(getMetaDataState, getTimePlans);
+export const kebeles = createSelector(getMetaDataState, getKebeles);
+export const implementers = createSelector(getMetaDataState, getImplementers);
+export const activity_categories = createSelector(getMetaDataState, getActivityCategories);
+export const statuses = createSelector(getMetaDataState, getStatuses);
 
 
 // creating form design selectors

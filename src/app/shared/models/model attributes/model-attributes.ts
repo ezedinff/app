@@ -1,4 +1,8 @@
 import {BaseElement} from '../BaseElement';
+<<<<<<< HEAD
+=======
+import {Implementer} from '../implementer';
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
 
 export interface OutcomeAttributes {
   id?: number;
@@ -26,6 +30,24 @@ export interface OutputAttributes {
   outcome_id: number;
   parent_id: number;
 }
+<<<<<<< HEAD
+=======
+export interface ActivityAttributes {
+  id?: number;
+  name: string;
+  description: string;
+  output_id: number;
+  created_at: string;
+  updated_at: string;
+  status: string;
+  featured: boolean;
+  category_id: number;
+  kebele_id: number;
+  start_date: string;
+  end_date: string;
+  implementing_partners: Implementer[];
+}
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
 export interface FormAttributes {
   form_name: string;
   form_elements: BaseElement[];

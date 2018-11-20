@@ -1,6 +1,7 @@
 import {Action} from '@ngrx/store';
 import {Outcome, Project} from '../../models';
 import {OutcomeAttributes, OutputAttributes} from '../../models/model attributes/model-attributes';
+import {ActivityAttributes, OutcomeAttributes, OutputAttributes} from '../../models/model attributes/model-attributes';
 import {Output} from '../../models/output';
 
 export enum projectActionTypes {
@@ -30,6 +31,9 @@ export enum projectActionTypes {
   DeleteOutputSuccess = '',
   DeleteOutputFailed = '',
   SetSelectedTeamId = '',
+  CreateActivity = '',
+  CreateMilestone= '',
+  CreateIndicator= '',
 }
 export class Load implements Action {
   readonly type = projectActionTypes.Load;
@@ -81,18 +85,30 @@ export class CreateOutput implements Action {
   readonly type = projectActionTypes.CreateOutput;
   constructor(public payload: OutputAttributes) {}
 }
-export class CreateOutputSuccess implements Action {
-  readonly type = projectActionTypes.CreateOutputSuccess;
-  constructor(public payload: Output[]) {}
-}
 export class CreateOutputFailed implements Action {
   readonly type = projectActionTypes.CreateOutputFailed;
   constructor(public payload: any) {}
 }
-
 export class SetSelectedTeamId implements Action {
   readonly type = projectActionTypes.SetSelectedTeamId;
-  constructor(public payload: number) {}
+  constructor(public payload: number) {
+  }
+}
+export class UpdateOutput implements Action {
+  readonly type = projectActionTypes.UpdateOutput;
+  constructor(public payload: OutputAttributes) {}
+}
+export class CreateActivity implements Action {
+  readonly type = projectActionTypes.CreateActivity;
+  constructor(public payload: ActivityAttributes) {}
+}
+export class CreateMilestone implements Action {
+  readonly type = projectActionTypes.CreateMilestone;
+  constructor(public payload: ActivityAttributes) {}
+}
+export class CreateIndicator implements Action {
+  readonly type = projectActionTypes.CreateIndicator;
+  constructor(public payload: ActivityAttributes) {}
 }
 export type ProjectActions = Load
   | LoadSuccess
@@ -106,6 +122,9 @@ export type ProjectActions = Load
   | UpdateOutcomeSuccess
   | UpdateOutcomeFailed
   | CreateOutput
-  | CreateOutputSuccess
   | CreateOutputFailed
-  | SetSelectedTeamId;
+  | SetSelectedTeamId
+  | UpdateOutput
+  | CreateActivity
+  | CreateMilestone
+  | CreateIndicator;

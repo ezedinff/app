@@ -74,3 +74,7 @@ export function reducer(state = INITIALSTATE, action: metaDataActions) {
 }
 
 export const getTimePlans = (state: State) => state.time_plans;
+export const getKebeles = (state: State) => state.kebeles;
+export const getImplementers = (state: State) => state.implementers;
+export const getActivityCategories = (state: State) => state.activity_categories;
+export const getStatuses = (state: State) => state.statuses;

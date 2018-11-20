@@ -23,12 +23,20 @@ import {MAT_MOMENT_DATE_FORMATS} from '@angular/material-moment-adapter';
 import {MomentUtcDateAdapter} from './shared/asyncServices/moment-utc-date-adapter';
 import {FormDesignEffect} from './shared/store/effects/form-design.effect';
 import {MyFormEffect} from './shared/store/effects/my-form.effect';
+<<<<<<< HEAD
+=======
+import {OutputEffect} from './shared/store/effects/output.effect';
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
 export function configServiceFactory(config: ConfigService) {
   return () => config.load();
 }
 const effects = [
   AuthEffect,
   OutcomeEffect,
+<<<<<<< HEAD
+=======
+  OutputEffect,
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
   MetaDataEffects,
   ProjectEffect,
   FormDesignEffect,

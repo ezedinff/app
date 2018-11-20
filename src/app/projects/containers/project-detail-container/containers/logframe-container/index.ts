@@ -8,6 +8,10 @@ import {LogframeFormBuilderService} from './services/logframe-form-builder.servi
 import {OutcomeSandbox} from '../../../../sandbox/outcome.sandbox';
 import {ProjectSandbox} from '../../../../sandbox/project.sandbox';
 import {OutputSanbox} from '../../../../sandbox/output.sanbox';
+<<<<<<< HEAD
+=======
+import {ActivitySandbox} from '../../../../sandbox/activity.sandbox';
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
 const routes: Routes = [
   {path: '',  component: LogframeContainer}
 ];
@@ -15,6 +19,10 @@ const routes: Routes = [
   imports: [CommonModule, TreeModule, MatCardModule, MatDialogModule, RouterModule.forChild(routes)],
   declarations: [LogframeContainer],
   exports: [LogframeContainer, RouterModule],
+<<<<<<< HEAD
   providers: [LogframeFormBuilderService, OutcomeSandbox, ProjectSandbox, OutputSanbox],
+=======
+  providers: [LogframeFormBuilderService, OutcomeSandbox, ProjectSandbox, OutputSanbox, ActivitySandbox],
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
 })
 export class LogframeModule { }

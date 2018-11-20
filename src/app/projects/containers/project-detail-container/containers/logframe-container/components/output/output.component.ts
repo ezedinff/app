@@ -31,9 +31,28 @@ export class OutputComponent implements OnInit, OnDestroy, FormComponent {
   };
   generalForm: FormGroup;
   timePlans$: Observable<TimePlan[]>;
+<<<<<<< HEAD
   constructor(private outputSanbox: OutputSanbox, private fb: FormBuilder) {}
 
   ngOnInit(): void {
+=======
+  constructor(private outputSanbox: OutputSanbox, private fb: FormBuilder) {
+    this.validationMessages = {
+      type: {
+        required: 'Outcome type is required.'
+      },
+      name: {
+        required: 'Oucome title is required.'
+      }
+    };
+    // Define an instance of the validator for use with this form,
+    // passing in this form's set of validation messages.
+    this.genericValidator = new GenericValidator(this.validationMessages);
+  }
+
+  ngOnInit(): void {
+    console.log(this.data);
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
     this.createForm(this.action);
     this.timePlans$ = this.outputSanbox.time_plans$;
     this.parent_id = this.from === 'outcome' ? 0 : this.id; // for new output
@@ -58,8 +77,14 @@ export class OutputComponent implements OnInit, OnDestroy, FormComponent {
       name: this.generalForm.get('name').value,
       type_id: this.generalForm.get('type').value,
       parent_id: this.parent_id,
+<<<<<<< HEAD
       outcome_id: this.project_id
     };
+=======
+      outcome_id: this.data['attributes']['outcome_id'] ? this.data['attributes']['outcome_id'] : this.data['id']
+    };
+    console.log('hello');
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
     if (this.generalForm.valid) {
       this.action !== 'edit' ? this.outputSanbox.createOutput(output) : this.outputSanbox.updateOutput(output); }
   }

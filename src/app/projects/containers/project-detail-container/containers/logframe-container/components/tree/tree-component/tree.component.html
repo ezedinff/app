@@ -16,11 +16,19 @@
       <app-tree-element [m]="1" [title]="out?.attributes.name" [type]="'outcome'" [id]="out?.id" [data]="out" [showToggle]="isVisible(out?.outcomes) || isVisible(out?.indicators) || isVisible(out.outputs)" *ngFor="let out of outcome?.outcomes">
         <app-tree-element [m]="1" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id"  [indicator]="ind" *ngFor="let ind of out.indicators"></app-tree-element>
 
+<<<<<<< HEAD
         <app-tree-element [m]="1" [title]="output?.name" [type]="'output'" [data]="output" [showToggle]="isVisible(output?.indicators) || isVisible(output?.outputs)" [id]="output?.id"  *ngFor="let output of out?.outputs">
           <app-tree-element [m]="1.5" [title]="ind.attributes?.name" [type]="'indicator'"  [id]="ind?.id" [indicator]="ind" *ngFor="let ind of output.indicators"></app-tree-element>
           <app-tree-element [m]="1.5" [title]="outp.name" [type]="'output'" [data]="outp" [showToggle]="isVisible(outp?.indicators) || isVisible(outp?.outputs)" *ngFor="let outp of output?.outputs">
             <app-tree-element [m]="2" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outp.indicators"></app-tree-element>
             <app-tree-element [m]="2" [title]="outpt.name" [type]="'output'" [data]="outpt" [showToggle]="isVisible(outpt?.indicators) || isVisible(outpt?.outputs)"  *ngFor="let outpt of outp?.outputs">
+=======
+        <app-tree-element [m]="1" [title]="output?.attributes?.name" [type]="'output'" [data]="output" [showToggle]="isVisible(output?.indicators) || isVisible(output?.outputs)" [id]="output?.id"  *ngFor="let output of out?.outputs">
+          <app-tree-element [m]="1.5" [title]="ind.attributes?.name" [type]="'indicator'"  [id]="ind?.id" [indicator]="ind" *ngFor="let ind of output.indicators"></app-tree-element>
+          <app-tree-element [m]="1.5" [title]="outp?.attributes?.name" [type]="'output'" [data]="outp" [showToggle]="isVisible(outp?.indicators) || isVisible(outp?.outputs)" *ngFor="let outp of output?.outputs">
+            <app-tree-element [m]="2" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outp.indicators"></app-tree-element>
+            <app-tree-element [m]="2" [title]="outpt?.attributes?.name" [type]="'output'" [data]="outpt" [showToggle]="isVisible(outpt?.indicators) || isVisible(outpt?.outputs)"  *ngFor="let outpt of outp?.outputs">
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
               <app-tree-element [m]="2.5" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outpt.indicators"></app-tree-element>
               <app-tree-element [m]="2.5" [title]="actv.name" [type]="'activity'" [data]="actv" [showToggle]="isVisible(actv?.activities)" [id]="actv?.id" *ngFor="let actv of outpt?.activities">
                 <app-tree-element [m]="3" [title]="a.name" [type]="'activity'" [id]="a?.id" [data]="a" *ngFor="let a of act?.activities"></app-tree-element>
@@ -40,11 +48,19 @@
 
       </app-tree-element>
 
+<<<<<<< HEAD
       <app-tree-element [m]="1" [title]="output?.name" [type]="'output'" [data]="output" [showToggle]="isVisible(output?.indicators) || isVisible(output?.outputs)" [id]="output?.id"   *ngFor="let output of outcome?.outputs">
         <app-tree-element [m]="1.5" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of output.indicators"></app-tree-element>
         <app-tree-element [m]="1.5" [title]="outp.name" [type]="'output'" [data]="outp" [showToggle]="isVisible(outp?.indicators) || isVisible(outp?.outputs)" *ngFor="let outp of output?.outputs">
           <app-tree-element [m]="2" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outp.indicators"></app-tree-element>
           <app-tree-element [m]="2" [title]="outpt.name" [type]="'output'" [data]="outpt" [showToggle]="isVisible(outpt?.indicators) || isVisible(outpt?.outputs)"  *ngFor="let outpt of outp?.outputs">
+=======
+      <app-tree-element [m]="1" [title]="output?.attributes?.name" [type]="'output'" [data]="output" [showToggle]="isVisible(output?.indicators) || isVisible(output?.outputs)" [id]="output?.id"   *ngFor="let output of outcome?.outputs">
+        <app-tree-element [m]="1.5" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of output.indicators"></app-tree-element>
+        <app-tree-element [m]="1.5" [title]="outp?.attributes?.name" [type]="'output'" [data]="outp" [showToggle]="isVisible(outp?.indicators) || isVisible(outp?.outputs)" *ngFor="let outp of output?.outputs">
+          <app-tree-element [m]="2" [title]="ind.attributes?.name" [type]="'indicator'" [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outp.indicators"></app-tree-element>
+          <app-tree-element [m]="2" [title]="outpt?.attributes?.name" [type]="'output'" [data]="outpt" [showToggle]="isVisible(outpt?.indicators) || isVisible(outpt?.outputs)"  *ngFor="let outpt of outp?.outputs">
+>>>>>>> 673aec5b843245a586238e95924ad5e973d86ccb
             <app-tree-element [m]="1" [title]="ind.attributes?.name" [type]="'indicator'"  [id]="ind?.id" [indicator]="ind" *ngFor="let ind of outpt.indicators"></app-tree-element>
             <app-tree-element [m]="2.5" [title]="actv.name" [type]="'activity'" [data]="actv" [showToggle]="isVisible(actv?.activities)" [id]="actv?.id" *ngFor="let actv of outpt?.activities">
               <app-tree-element [m]="3" [title]="a.name" [type]="'activity'" [id]="a?.id" [data]="a" *ngFor="let a of act?.activities"></app-tree-element>

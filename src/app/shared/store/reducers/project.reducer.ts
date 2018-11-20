@@ -1,7 +1,5 @@
 import {Project} from '../../models';
 import {ProjectActions, projectActionTypes} from '../actions/project.action';
-import {team} from '../index';
-
 export interface State {
   loading: boolean;
   loaded: boolean;
@@ -9,7 +7,6 @@ export interface State {
   message: string;
   error: string;
   selectedProjectId: number;
-  selectedTeamId: number;
   projects: Project[];
 }
 
@@ -50,8 +47,6 @@ export function reducer(state = INITIAL_STATE, action: ProjectActions): State {
       return {...state, loaded: true,
         loading: false, error: null,
         message: '[Outcome] Outcome updated successfully' , failed: false, projects: pros};
-    case projectActionTypes.CreateOutputSuccess:
-      return state;
     case projectActionTypes.SetSelectedTeamId:
       return {...state, selectedTeamId: action.payload};
     default:
