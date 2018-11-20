@@ -6,6 +6,8 @@ import {RouterModule, Routes} from '@angular/router';
 import {CommonModule} from '@angular/common';
 import {MatButtonModule, MatCardModule, MatIconModule, MatToolbarModule} from '@angular/material';
 import {FlexLayoutModule} from '@angular/flex-layout';
+import {OutcomeSandbox} from '../../sandbox/outcome.sandbox';
+import {ProjectSandbox} from '../../sandbox/project.sandbox';
 const COMPONENTS = [
   ProjectContainer,
   ProjectComponent,
@@ -13,7 +15,6 @@ const COMPONENTS = [
 ];
 const routes: Routes = [
   {path: '', component: ProjectContainer},
-  {path: '', loadChildren: ''}
 ];
 @NgModule({
   declarations: COMPONENTS,
@@ -24,7 +25,7 @@ const routes: Routes = [
     MatCardModule,
     MatButtonModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
   ],
   exports: [
     ProjectContainer,
@@ -32,6 +33,6 @@ const routes: Routes = [
     ProjectListComponent,
     RouterModule
   ],
-  providers: []
+  providers: [OutcomeSandbox, ProjectSandbox]
 })
 export class ProjectContainerModule { }

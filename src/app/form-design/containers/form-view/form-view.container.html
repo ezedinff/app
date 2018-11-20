@@ -1,0 +1,24 @@
+<mat-toolbar fxLayout="row" style="overflow: hidden;">
+  <div fxFlex >
+    <span *ngIf="!editFormNameEnabled">{{formTitle}}</span>
+    <button mat-icon-button type="button" *ngIf="!editFormNameEnabled" (click)="editForm()">
+      <mat-icon>edit</mat-icon>
+    </button>
+    <form novalidate #edit="ngForm" *ngIf="editFormNameEnabled" (ngSubmit)="saveFormName()">
+      <mat-form-field>
+        <input type="text" matInput name="form_name" ngModel [(ngModel)]="formTitle" required>
+      </mat-form-field>
+      <button mat-icon-button [disabled]="edit.invalid || edit.pristine">
+        <mat-icon>save</mat-icon>
+      </button>
+    </form>
+  </div>
+  <div fxFlex fxLayoutAlign="end">
+    <button mat-button (click)="refresh()"><mat-icon>refresh</mat-icon>Refresh</button>
+    <button mat-button (click)="publish()"><mat-icon>publish</mat-icon>Publish</button>
+    <button mat-button (click)="discard()"><mat-icon>close</mat-icon>Discard</button>
+  </div>
+</mat-toolbar>
+<div class="container-fluid" style="padding: 24px;">
+  <ng-template dynamicForm></ng-template>
+</div>

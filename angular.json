@@ -29,9 +29,11 @@
             ],
             "styles": [
               "src/styles.scss",
-              "src/theme/theme.scss"
+              "src/theme/theme.scss",
+              "src/assets/fonts/material-icons/material-icons.css"
             ],
-            "scripts": []
+            "scripts": [
+            ]
           },
           "configurations": {
             "production": {

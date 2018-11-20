@@ -1,13 +1,24 @@
 <mat-card>
-  <mat-card-header>
-    <mat-card-title>Project Details</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item>item 1</mat-list-item>
-      <mat-list-item>item 1</mat-list-item>
-      <mat-list-item>item 1</mat-list-item>
-      <mat-list-item>item 1</mat-list-item>
+  <mat-card-title>Project Details</mat-card-title>
+  <mat-divider></mat-divider>
+  <mat-card-content style="padding-left: 0;">
+    <mat-list >
+      <mat-list-item><span class="title">Start Date:</span>&nbsp;{{details?.starting_date | date}}</mat-list-item>
+      <mat-list-item><span class="title">End Date:</span>&nbsp;{{details?.ending_date | date}}</mat-list-item>
+      <mat-list-item><span class="title">Cluster:</span>&nbsp;{{details?.cluster?.name}}</mat-list-item>
+      <mat-list-item><span class="title">Category:</span>&nbsp;{{category?.name}}</mat-list-item>
+      <mat-list-item><span class="title">Target Group:</span>&nbsp;
+        <span *ngFor="let beneficiary of beneficiaries;
+         let j = last;">{{beneficiary?.name}}<span *ngIf="index != j">,&nbsp;</span>
+        </span>
+      </mat-list-item>
+      <mat-list-item><span class="title">Implementers:</span>&nbsp;
+        <span *ngFor="let implementer of implementers;
+         let i = last;">{{implementer?.name}}<span *ngIf="i != index">,&nbsp;</span>
+        </span>
+      </mat-list-item>
+      <mat-list-item><span class="title">Total Budget:</span>&nbsp;{{details?.budget | currency}}</mat-list-item>
+      <mat-list-item><span class="title">Manager:</span>&nbsp;{{details?.manager1?.name}}</mat-list-item>
     </mat-list>
   </mat-card-content>
 </mat-card>

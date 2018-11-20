@@ -6,12 +6,16 @@
   max-height: 33px;
 }
 .ez-table-data{
+  border-right: 1px solid #b6b6b6;
+  border-bottom: 1px solid #b6b6b6;
   overflow: hidden;
+  text-align: center;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width: 206.8px;
   word-wrap: break-word;
   overflow-wrap: break-word;
+  min-height: 33px;
+  min-width: 206.8px;
 }
 .ez-table-action-button{
   position: relative;

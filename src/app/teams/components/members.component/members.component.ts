@@ -9,10 +9,6 @@ export class MembersComponent {
   setting = {
     columns: [
       {
-        title: 'No',
-        prop: 'id'
-      },
-      {
         title: 'Full Name',
         prop: 'name'
       },

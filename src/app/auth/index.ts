@@ -2,7 +2,7 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AuthContainer} from './auth.container';
 import {AuthSandbox} from './auth.sandbox';
-import {AuthService} from '../shared/containers/layout/auth.service';
+import {AuthService} from './auth.service';
 
 @NgModule({
   imports: [

@@ -24,3 +24,18 @@
 ::ng-deep .cdk-overlay-pane{
   width: 500px!important;
 }
+::ng-deep .invalid-feedback{
+  color: red;
+  margin: 0 1%;
+  position: relative;
+  top: -1em;
+}
+@media (max-width: 576px){
+  ::ng-deep .mat-select-panel{
+    //min-width: 90% !important;
+    position: relative !important;
+    left: 48px;
+    // transform-origin: 100% 0px 24px !important;
+  }
+}
+

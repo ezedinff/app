@@ -7,9 +7,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import {ConfigService} from './app-config.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatSnackBarModule} from '@angular/material';
-import {ComponentsModule} from './shared/components';
-import {ContainersModule} from './shared/containers/container.module';
+import {DateAdapter, MAT_DATE_FORMATS, MAT_DATE_LOCALE, MatSnackBarModule} from '@angular/material';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {EffectsModule} from '@ngrx/effects';
@@ -18,10 +16,26 @@ import {reducers} from './shared/store';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 import {AuthEffect} from './shared/store/effects/auth.effect';
 import {AuthModule} from './auth';
-import {ProjectModule} from './projects/project.module';
+import {OutcomeEffect} from './shared/store/effects/outcome.effect';
+import {MetaDataEffects} from './shared/store/effects/meta-data.effects';
+import {ProjectEffect} from './shared/store/effects/project.effect';
+import {MAT_MOMENT_DATE_FORMATS} from '@angular/material-moment-adapter';
+import {MomentUtcDateAdapter} from './shared/asyncServices/moment-utc-date-adapter';
+import {FormDesignEffect} from './shared/store/effects/form-design.effect';
+import {MyFormEffect} from './shared/store/effects/my-form.effect';
+import {OutputEffect} from './shared/store/effects/output.effect';
 export function configServiceFactory(config: ConfigService) {
   return () => config.load();
 }
+const effects = [
+  AuthEffect,
+  OutcomeEffect,
+  OutputEffect,
+  MetaDataEffects,
+  ProjectEffect,
+  FormDesignEffect,
+  MyFormEffect
+];
 @NgModule({
   declarations: [
     AppComponent
@@ -36,11 +50,11 @@ export function configServiceFactory(config: ConfigService) {
     AuthModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([AuthEffect]),
+    EffectsModule.forRoot(effects),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: environment.production, // Restrict extension to log-only mode
-    }),
+    })
   ],
   providers: [
     ConfigService,
@@ -49,7 +63,10 @@ export function configServiceFactory(config: ConfigService) {
       useFactory: configServiceFactory,
       deps: [ConfigService],
       multi: true
-    }
+    },
+    { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
+    { provide: MAT_DATE_FORMATS, useValue: MAT_MOMENT_DATE_FORMATS },
+    { provide: DateAdapter, useClass: MomentUtcDateAdapter },
   ],
   bootstrap: [AppComponent]
 })

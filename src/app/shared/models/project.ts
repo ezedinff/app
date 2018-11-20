@@ -1,11 +1,9 @@
 import {ProjectCategory, ProjectDetail, Program, Beneficariary, Implementer, Outcome, Activity, Status} from './index';
+import {ProjectAttributes} from './model attributes/model-attributes';
 
 export interface Project {
   id: number;
-  name: string;
-  description: string;
-  featured: boolean;
-  status: Status;
+  attributes: ProjectAttributes;
   category: ProjectCategory;
   details: ProjectDetail;
   program: Program;

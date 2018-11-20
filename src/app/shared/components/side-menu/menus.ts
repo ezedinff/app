@@ -16,5 +16,17 @@ export const menus: Menu[] = [
     icon: 'dashboard',
     link: '/teams',
     open: false
+  },
+  {
+    name: 'Form Design',
+    icon: 'dashboard',
+    link: '/form-design',
+    open: false
+  },
+  {
+    name: 'My Forms',
+    icon: 'dashboard',
+    link: '/my-forms',
+    open: false
   }
 ];

@@ -32,7 +32,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatIconModule,
     FlexLayoutModule,
     MatDialogModule,
-    MatDialogModule,
     RouterModule.forChild(routes),
     PerfectScrollbarModule,
     EzTableModule

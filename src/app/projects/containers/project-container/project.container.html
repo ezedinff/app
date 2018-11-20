@@ -1,1 +1,4 @@
-<app-project-list [title]="title"></app-project-list>
+<app-project-list [title]="title"
+                  [projects]="$projects$ | async"
+                  (projectSelected)="goToOverview($event)">
+</app-project-list>

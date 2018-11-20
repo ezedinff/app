@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Project} from '../../../../../shared/models';
 
 @Component({
   selector: 'app-project',
@@ -7,15 +7,13 @@ import {Router} from '@angular/router';
   templateUrl: './project.component.html'
 })
 export class ProjectComponent implements OnInit {
-
-  constructor(private router: Router) {
-
-  }
-
+  @Input() project: Project;
+  @Output() detail = new EventEmitter();
   ngOnInit(): void {
   }
 
-  goToDetail() {
-    this.router.navigate(['/projects/detail/overview']);
+  dispatchProjectId(project_id: number) {
+    console.log(project_id);
+    this.detail.emit(project_id);
   }
 }

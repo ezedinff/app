@@ -20,13 +20,13 @@ export class HttpResponseHandler {
         this.handleUnauthorized(response);
         break;
       case 403:
-        this.handleForbidden();
+        this.handleForbidden(response);
         break;
       case 404:
-        this.handleNotFound();
+        this.handleNotFound(response);
         break;
       case 500:
-        this.handleServerError();
+        this.handleServerError(response);
         break;
       default:
         break;
@@ -39,34 +39,35 @@ export class HttpResponseHandler {
       try {
         this.handleErrorMessages(responseBody);
       } catch (error) {
-        this.handleServerError();
+        this.handleServerError(responseBody);
       }
     } else {
-      this.handleServerError();
+      this.handleServerError(responseBody);
     }
   }
 
   private handleUnauthorized(responseBody: any): void {
-    this.showNotificationError(responseBody);
+    this.showNotificationError(responseBody.error.error.message);
+    location.assign('http://localhost:4200');
   }
 
-  private handleForbidden(): void {
-    this.showNotificationError('say something here'); // Todo create list of error message in separate file
+  private handleForbidden(response): void {
+    this.showNotificationError(response.error.error.message); // Todo create list of error message in separate file
   }
 
-  private handleNotFound(): void {
-    this.showNotificationError('say something here');
+  private handleNotFound(response): void {
+    this.showNotificationError(response.error.error.message);
   }
 
-  private handleServerError() {
-    this.showNotificationError('say something here');
+  private handleServerError(response) {
+    this.showNotificationError(response.error.error.message);
   }
 
   private handleErrorMessages(response: any) {
     if (!response) {
       return;
     }
-    this.showNotificationError(response); // Todo get the message from response object don't leave it like this
+    this.showNotificationError(response.error.error.message); // Todo get the message from response object don't leave it like this
   }
 
   private showNotificationError(message: string) {

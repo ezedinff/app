@@ -1,0 +1,21 @@
+<form style="padding: 24px;" novalidate [formGroup]="generalForm" (ngSubmit)="submit()">
+  <p>
+    <mat-form-field class="full-width">
+      <mat-select formControlName="type" placeholder="select output type" >
+        <mat-option *ngFor="let plan of timePlans$ | async" [value]="plan.id" >
+          {{plan.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </p>
+  <p>
+    <mat-form-field class="full-width">
+      <input type="text" formControlName="name" matInput placeholder="output title">
+    </mat-form-field>
+  </p>
+  <button mat-raised-button color="primary" type="submit"
+          class="submit-button text-floral-white"
+          [disabled]="generalForm.invalid || generalForm.pristine">
+    <mat-icon iconsmall>save</mat-icon>Save
+  </button>
+</form>

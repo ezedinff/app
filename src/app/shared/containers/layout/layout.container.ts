@@ -20,6 +20,9 @@ export class LayoutContainer implements OnInit {
   constructor(private media: ObservableMedia, private layoutSandbox: LayoutSandbox, private route: Router) {
     this.media.subscribe((mediaCahnge: MediaChange) => this.toggleView());
     this.user$ = this.layoutSandbox.loggedUser$;
+    this.layoutSandbox.loadMetaData();
+    this.layoutSandbox.loadMainData();
+    this.layoutSandbox.loadForms();
   }
   toggleView() {
     if (this.media.isActive('gt-md')) {
